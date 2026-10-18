@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git push:*)",
+      "Bash(git -C _private push:*)",
+      "Bash(git commit --no-verify:*)",
+      "Bash(git -C _private commit --no-verify:*)",
+      "Bash(git config:*)",
+      "Bash(git -C _private config:*)",
+      "Read(./.obsidian/**)",
+      "Read(./**/.env)",
+      "Edit(./.claude/**)",
+      "Edit(./.githooks/**)",
+      "Edit(./_private/.githooks/**)",
+      "Edit(./.github/**)",
+      "Edit(./.tools/**)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit|NotebookEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

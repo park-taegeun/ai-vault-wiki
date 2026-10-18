@@ -1,0 +1,25 @@
+# ── 비공개 구역 (별도 private 레포로 관리) ───
+_private/
+99-Attachments/
+# 예전(v1) 경로 이름 — 실수로 다시 생겨도 올라가지 않게
+raw/
+private/
+log.md
+
+# ── Obsidian 설정 ───────────────────────
+# Local REST API 플러그인의 API 키·인증서가 .obsidian/plugins/ 안에 저장됨
+.obsidian/
+.trash/
+
+# ── Claude Code 로컬 설정 ───────────────
+.claude/settings.local.json
+
+# ── Python 캐시 ─────────────────────────
+__pycache__/
+*.pyc
+
+# ── 기타 ────────────────────────────────
+.DS_Store
+*.zip
+.env
+.env.*

@@ -1,0 +1,85 @@
+# 공개 위키(wiki/)와 평가 결과(eval/)만 Quartz로 빌드해 GitHub Pages에 배포한다.
+# 볼트 레포에는 Quartz 소스를 두지 않고, 검증된 Quartz 커밋을 빌드할 때만 받아온다.
+#
+# 최초 1회: 레포 Settings → Pages → Source를 "GitHub Actions"로 바꿔야 배포된다.
+name: Publish wiki site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "wiki/**"
+      - "eval/**"
+      - ".tools/**"
+      - ".github/workflows/publish.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  # 2026-10-18에 이 키트로 빌드를 확인한 Quartz v5 커밋. 올릴 땐 로컬에서 빌드 확인 후 바꾸기.
+  QUARTZ_REF: 97a2d05f80c4c50534959b1d0d41cc4b3895625e
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout vault
+        uses: actions/checkout@v6
+        with:
+          path: vault
+
+      # 커밋 훅을 우회한 커밋이 있어도 여기서 한 번 더 막는다 (마지막 방어선)
+      - name: Public gate — 공개 파일 전수 검사
+        run: python3 vault/.tools/wiki_check.py public-gate
+
+      - name: Checkout Quartz
+        uses: actions/checkout@v6
+        with:
+          repository: jackyzha0/quartz
+          ref: ${{ env.QUARTZ_REF }}
+          path: quartz
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Install Quartz
+        working-directory: quartz
+        run: npm ci
+
+      - name: Prepare content
+        env:
+          BASE_URL: ${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+        run: |
+          rm -rf quartz/content
+          cp -R vault/wiki quartz/content
+          mkdir -p quartz/content/eval
+          cp vault/eval/*.md quartz/content/eval/
+          find quartz/content -name .gitkeep -delete
+          sed "s|__BASE_URL__|${BASE_URL}|" vault/.tools/quartz.config.yaml > quartz/quartz.config.yaml
+
+      - name: Build
+        working-directory: quartz
+        run: npx quartz build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: quartz/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

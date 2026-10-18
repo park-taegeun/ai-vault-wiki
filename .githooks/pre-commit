@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# AI-Vault pre-commit 훅
+# 실제 검사는 .tools/wiki_check.py staged 가 한다 (패턴은 .tools/wiki_patterns.py 한 곳에서 관리).
+#  - 비공개 경로(raw/, private/, .obsidian/ 등) 커밋 차단
+#  - 새로 추가되는 줄의 API 키·토큰·개인정보(전화번호·주민번호·이메일) 차단
+#  - 공개 페이지가 비공개 페이지를 [[링크]]하면 차단
+# 정말 괜찮다고 사람이 직접 확인한 경우에만: git commit --no-verify
+
+ROOT="$(git rev-parse --show-toplevel)"
+if ! command -v python3 >/dev/null 2>&1; then
+  echo "🚫 python3가 없어 커밋 검사를 할 수 없습니다. 안전을 위해 커밋을 막았습니다."
+  exit 1
+fi
+exec python3 "$ROOT/.tools/wiki_check.py" staged
