@@ -50,6 +50,7 @@ MFCC(Mel-Frequency Cepstral Coefficients)는 소리의 **음색(질감)**을 사
 
 ## 관련
 - [[f0-pitch]] · [[egemaps]] · [[opensmile]] · [[speech-emotion-recognition]] · [[korean-emotion-speech-datasets]] · [[어조-모듈]] · [[음향-벡터-프롬프트-주입]] · [[sarcasm-detection]] · [[회의-음성-어조-분석-연구]] · [[mel-spectrogram]]
+- [[llm-wiki]] — 여러 글에 흩어진 MFCC 내용이 이 페이지 하나로 모인 "복리" 사례
 - 원글: [LAB 45. 음성 감정 분석을 위한 MFCC와 피치 개념 정리](https://velog.io/@xorms/LAB-45.-%EC%9D%8C%EC%84%B1-%EA%B0%90%EC%A0%95-%EB%B6%84%EC%84%9D%EC%9D%84-%EC%9C%84%ED%95%9C-MFCC%EC%99%80-%ED%94%BC%EC%B9%98-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A6%AC)
 - 원글: [LAB 48. 음향특징 추출 스모크 (MFCC·피치·에너지)](https://velog.io/@xorms/LAB-48.-%EC%9D%8C%ED%96%A5%ED%8A%B9%EC%A7%95-%EC%B6%94%EC%B6%9C-%EC%8A%A4%EB%AA%A8%ED%81%AC-MFCC%ED%94%BC%EC%B9%98%EC%97%90%EB%84%88%EC%A7%80)
 - 원글: [LAB 52. 어조 모듈의 특징 설계](https://velog.io/@xorms/LAB-52.-%EC%96%B4%EC%A1%B0-%EB%AA%A8%EB%93%88%EC%9D%98-%ED%8A%B9%EC%A7%95-%EC%84%A4%EA%B3%84)

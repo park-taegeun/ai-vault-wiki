@@ -58,5 +58,6 @@ curl -s -H "Authorization: Bearer <REDACTED>" http://127.0.0.1:27123/vault/
 
 ## 관련
 - [[mcp]]
+- [[llm-wiki]] — 볼트 폴더를 Claude Code가 직접 읽고 쓰는 다른 접근
 - [[mcp-scope]]
 - 원글: [Claude Desktop에 Obsidian 볼트 연결](https://velog.io/@xorms/Claude-Desktop%EC%97%90-Obsidian-%EB%B3%BC%ED%8A%B8-%EC%97%B0%EA%B2%B0)

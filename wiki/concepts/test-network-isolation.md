@@ -64,5 +64,6 @@ tags: [테스트, 격리, 비용, 외부api]
 
 ## 관련
 - [[fault-injection]] · [[asr]] · [[미결-실재-확인]] · [[ai-산출물-검증]] · [[띵동]]
+- [[ai-vault]] — 요청하지 않은 필드까지 돌려준 관대한 mock이 버그를 숨긴 사례, strict mock으로 재현
 - 원글: [졸업작품 기록 (69)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-69)
 - 원글: [졸업작품 기록 (70)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-70-o4xdktv2)

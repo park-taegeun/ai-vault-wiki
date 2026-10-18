@@ -61,6 +61,7 @@ tags: [테스트, 검증, 가드, 임베디드]
 
 ## 관련
 - [[대조-가드]] · [[test-network-isolation]] · [[vl53l5cx]] · [[reproducibility]] · [[onset-detection]] · [[design-tokens]] · [[ai-산출물-검증]] · [[구현-전-사전-테스트]] · [[모델-교체-판단]] · [[data-leakage]] · [[i2c]] · [[미결-실재-확인]] · [[띵동]]
+- [[ai-vault]] — 비밀값 가드 오탐 수정 뒤 진짜 키 모양 5종이 여전히 막히는지 회귀 테스트
 - 원글: [졸업작품 기록 (58)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-58)
 - 원글: [졸업작품 기록 (60)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-60-yluffzjs)
 - 원글: [졸업작품 기록 (63)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-63-5c94whuk)
