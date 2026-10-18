@@ -28,5 +28,8 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "obsidian@obsidian-skills": true
   }
 }

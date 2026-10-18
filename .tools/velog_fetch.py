@@ -36,7 +36,7 @@ def gql(query):
     req = urllib.request.Request(
         API,
         data=json.dumps({"query": query}).encode(),
-        headers={"Content-Type": "application/json", "User-Agent": "ai-vault-velog-sync/1.0"},
+        headers={"Content-Type": "application/json", "User-Agent": "ai-vault-velog-wiki/1.0"},
     )
     with urllib.request.urlopen(req, timeout=30) as r:
         res = json.load(r)
@@ -63,7 +63,7 @@ def list_posts(user):
 
 
 def fetch_post(user, slug):
-    q = f"{{ post(username: {lit(user)}, url_slug: {lit(slug)}) {{ id title body tags is_private released_at updated_at series {{ name }} }} }}"
+    q = f"{{ post(username: {lit(user)}, url_slug: {lit(slug)}) {{ id title url_slug body tags is_private released_at updated_at series {{ name }} }} }}"
     return gql(q)["post"]
 
 
@@ -74,7 +74,7 @@ def safe(s, n=80):
 
 
 def series_name(p):
-    return (p.get("series") or {}).get("name") or "_시리즈없음"
+    return ((p.get("series") or {}).get("name") or "").strip() or "_시리즈없음"  # Velog 시리즈 이름엔 앞뒤 공백이 섞여 있을 수 있음
 
 
 def saved_versions():
@@ -138,7 +138,8 @@ def main(argv=None):
     a = ap.parse_args(argv)
 
     seen = saved_versions()
-    posts = [p for p in list_posts(a.user) if not a.series or series_name(p) in a.series]
+    wanted = {s.strip() for s in a.series or []}
+    posts = [p for p in list_posts(a.user) if not wanted or series_name(p) in wanted]
 
     todo = []
     for p in posts:

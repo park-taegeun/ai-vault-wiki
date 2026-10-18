@@ -29,7 +29,7 @@ if [ "$rc" -eq 0 ]; then
   date '+%Y-%m-%dT%H:%M:%S' > "$LOGDIR/velog-last-success"
   n="$(printf '%s\n' "$out" | sed -n 's/^저장 \([0-9][0-9]*\)편.*/\1/p' | head -n 1)"
   if [ "${n:-0}" -gt 0 ]; then
-    notify "AI-Vault" "Velog 새 글 ${n}편 수집됨. Claude Code에서 /velog-sync 로 정리하세요"
+    notify "AI-Vault" "Velog 새 글 ${n}편 수집됨. Claude Code에서 /velog-wiki 로 정리하세요"
   fi
 else
   notify "AI-Vault" "Velog 수집 실패. _private/logs/velog-fetch.log 를 확인하세요"

@@ -1,6 +1,6 @@
 ---
-name: velog-sync
-description: Velog(@xorms)에 올린 글을 원본 창고로 가져와 LLM Wiki에 반영한다. "벨로그 동기화", "새 글 반영", "velog 트래킹", "블로그 글 위키에 넣어줘" 같은 요청이나 /velog-sync 때 사용한다.
+name: velog-wiki
+description: Velog(@xorms)에 올린 글을 원본 창고로 가져와 LLM Wiki에 반영한다. "벨로그 동기화", "새 글 반영", "velog 트래킹", "블로그 글 위키에 넣어줘" 같은 요청이나 /velog-wiki 때 사용한다.
 ---
 
 # Velog → LLM Wiki 동기화
@@ -39,7 +39,7 @@ Velog는 이미 공개된 내 글이라 위키의 가장 좋은 원본이다. �
    |---|---|
    | AI 생태계 탐험 로그 | `wiki/tools/` (도구별 페이지), `wiki/concepts/` (MCP, Nested Agent 등 개념) |
    | 졸업작품 기록 | `wiki/projects/` 의 졸업작품 페이지 (이력·핵심 결정), 배운 개념은 `wiki/concepts/` |
-   | LAB | `wiki/concepts/` (실험으로 확인한 개념과 결론) |
+   | AI_LAB | `wiki/concepts/` (실험으로 확인한 개념과 결론) |
    | 처음 보는 시리즈 | **어디로 보낼지 사람에게 묻고**, 이 표에 추가할 줄을 제안한다 (이 파일은 사람이 고친다) |
 
 4. 공개 글이라도 CLAUDE.md 2장을 그대로 적용한다. Velog에는 올렸어도 위키에 맞지 않는 개인 이야기는 공개 위키로 옮기지 않는다.
@@ -50,7 +50,7 @@ Velog는 이미 공개된 내 글이라 위키의 가장 좋은 원본이다. �
 
 1. `python3 .tools/wiki_check.py lint`의 🚨 항목이 0개인지 확인한다.
 2. `_private/log.md`에 실행 기록을 한 줄 남긴다 (자동화 준비도 계산에 쓰인다):
-   `- YYYY-MM-DD | velog-sync | 새 글 N편 → 신규 a, 보강 b`
+   `- YYYY-MM-DD | velog-wiki | 새 글 N편 → 신규 a, 보강 b`
 3. 보고: 새 글 N편 → 신규 페이지 a개, 보강 페이지 b개 (공개/비공개), 시리즈 표에 추가 제안이 있으면 그것까지.
 4. 마지막에 `/publish-check`를 권한다.
 
@@ -59,7 +59,7 @@ Velog는 이미 공개된 내 글이라 위키의 가장 좋은 원본이다. �
 지금은 **1단계(수집만 자동, 정리는 사람이 보면서)** 운영 중이다. 이 기간의 목적은 "Claude가 사람 확인 없이 정리해도 될 만큼 규칙이 안정됐는가"를 재는 것이다.
 
 1. 이번 동기화 결과(분류, 배치한 페이지, 합친 방식, 내용)를 사람이 고쳐달라고 하면, 고친 뒤 `_private/log.md`에 한 줄 남긴다:
-   `- YYYY-MM-DD | correction | velog-sync | 무엇을 왜 고쳤는지 한 줄`
+   `- YYYY-MM-DD | correction | velog-wiki | 무엇을 왜 고쳤는지 한 줄`
 2. 단순 오타나 사람의 취향 변경은 기록하지 않는다. **Claude의 판단이 틀린 경우만** 기록한다.
 3. 같은 종류의 수정이 두 번 나오면, 시리즈 표나 CLAUDE.md에 넣을 규칙 한 줄을 제안한다 (사람이 고친다).
 4. 준비도는 `python3 .tools/wiki_check.py lint` 맨 아래 "자동화 2단계 준비도"에서 확인한다.
