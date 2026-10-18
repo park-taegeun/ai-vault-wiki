@@ -47,6 +47,7 @@ tags: [mcp, firecrawl, crawling, rag]
 - 콤보(AI 뉴스 모니터링)에서 Anthropic·OpenAI·HuggingFace 블로그 3곳에서 뉴스 44건 스크랩 → [[mcp-combo]].
 
 ## 관련
+- [[ai-산출물-검증]] — 졸업작품 [[띵동]]에서 벤더 문서·부품몰 조사에 쓴 사례
 - [[mcp]]
 - [[mcp-scope]]
 - [[playwright-mcp]] — 웹 도구 비교

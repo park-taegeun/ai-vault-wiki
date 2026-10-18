@@ -55,6 +55,7 @@ claude mcp get github   # Status: ✓ Connected
 - **읽기 → 다른 MCP로 전달**: 최근 커밋 3개 조회·이슈 생성 결과를 Slack으로 보내는 알림 봇의 데이터 소스 역할.
 
 ## 관련
+- [[ai-산출물-검증]] · [[single-source-of-truth]] · [[github-flow]] — 졸업작품 [[띵동]]에서 실제 동작 코드 검색, 결정 문서 commit에 쓴 사례
 - [[mcp]]
 - [[mcp-scope]]
 - [[mcp-combo]]

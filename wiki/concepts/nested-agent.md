@@ -32,6 +32,7 @@ tags: [agent, claude-code, subagent, parallel]
 - **트러블슈팅 — 수동 생성 에이전트 미인식**: `.claude/agents/`에 파일을 직접 만들었더니 `/agents`에서 "No agents found". 알려진 버그(GitHub Issue #4728, #11205, #20931). `/agents → Create new agent → Project (.claude/agents/)`로 TUI에서 만들면 정상 인식. 교훈: 문서보다 실제 동작을 먼저 확인.
 
 ## 관련
+- [[ai-산출물-검증]] · [[single-source-of-truth]] — 졸업작품 [[띵동]]에서 채팅방·코딩 에이전트에 작업을 나눠 맡기고 결과를 검증한 방식
 - [[mcp]] — 여러 MCP를 에이전트들에 분산하는 구조적 기반
 - [[mcp-combo]] — 단일 에이전트로 여러 MCP를 엮는 방식과 대비
 - [[slack-mcp]] — 시리즈 이전 편

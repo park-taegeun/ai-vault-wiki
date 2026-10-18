@@ -38,6 +38,7 @@ Notion이 공식 운영하는 원격 MCP 서버. Claude Code에서 Notion 페이
 - 인증 방식 참고: [[supabase-mcp]]도 Notion MCP와 같은 OAuth 브라우저 인증으로 바뀌었다.
 
 ## 관련
+- [[single-source-of-truth]] — 졸업작품 [[띵동]]에서 노션을 기준이 아닌 보기 화면으로 둔 운영 체계
 - [[mcp]]
 - [[mcp-scope]]
 - [[mcp-combo]]

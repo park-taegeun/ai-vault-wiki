@@ -42,6 +42,7 @@ claude mcp list               # context7: ... ✓ Connected
 - `401 Authentication Error` → `/login`. 첫 호출 허락 팝업 → "Yes, and don't ask again" (자세히는 [[mcp]]).
 
 ## 관련
+- [[ai-산출물-검증]] — 졸업작품 [[띵동]]에서 공식 문서 조회로 1차 증거를 모은 사례
 - [[mcp]]
 - [[mcp-scope]]
 - [[mcp-combo]]

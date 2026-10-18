@@ -49,7 +49,7 @@ tags: [lora, qlora, peft, fine-tuning, gemma-4]
 - **효과를 먼저 확인한다**: 어떤 모듈에 붙여야 할지 근거가 없으면 disable과 enable을 바꿔 가며 변수 하나만 비교해 효과부터 본다.
 
 ## 관련
-- [[asr-fine-tuning]] · [[gemma-4]] · [[audio-tower]] · [[quantization]] · [[asr-hallucination]] · [[huggingface-transformers]] · [[transformer]] · [[wsl2-cuda-setup]] · [[회의-음성-어조-분석-연구]]
+- [[asr-fine-tuning]] · [[gemma-4]] · [[audio-tower]] · [[quantization]] · [[asr-hallucination]] · [[huggingface-transformers]] · [[transformer]] · [[wsl2-cuda-setup]] · [[회의-음성-어조-분석-연구]] · [[transfer-learning]]
 - 원글: [LAB 24. LoRA 파인튜닝](https://velog.io/@xorms/LAB-24.-LoRA-%ED%8C%8C%EC%9D%B8%ED%8A%9C%EB%8B%9D)
 - 원글: [LAB 35. 파인튜닝 - 소규모 학습/검증](https://velog.io/@xorms/LAB-35.-%ED%8C%8C%EC%9D%B8%ED%8A%9C%EB%8B%9D-%EC%86%8C%EA%B7%9C%EB%AA%A8-%ED%95%99%EC%8A%B5%EA%B2%80%EC%A6%9D)
 - 원글: [LAB 41. audio_tower LoRA 학습](https://velog.io/@xorms/LAB-41.-audiotower-LoRA-%ED%95%99%EC%8A%B5)

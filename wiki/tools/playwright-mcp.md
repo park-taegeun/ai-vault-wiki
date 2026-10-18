@@ -1,7 +1,7 @@
 ---
 type: tool
 modified: 2026-10-18
-sources: [_private/raw/velog/AI-생태계-탐험-로그/2026-03-30-Playwright-MCP-Server.md, _private/raw/velog/AI-생태계-탐험-로그/2026-03-30-Playwright-GitHub-Notion-3-MCP-콤보-실습.md, _private/raw/velog/AI-생태계-탐험-로그/2026-04-01-Firecrawl-MCP-콤보-실습.md, _private/raw/velog/AI-생태계-탐험-로그/2026-03-31-Sequential-Thinking-GitHub-Notion-3-MCP-콤보.md, _private/raw/velog/AI-생태계-탐험-로그/2026-04-01-Memory-Playwright-Notion-GitHub-4-MCP-콤보.md]
+sources: [_private/raw/velog/AI-생태계-탐험-로그/2026-03-30-Playwright-MCP-Server.md, _private/raw/velog/AI-생태계-탐험-로그/2026-03-30-Playwright-GitHub-Notion-3-MCP-콤보-실습.md, _private/raw/velog/AI-생태계-탐험-로그/2026-04-01-Firecrawl-MCP-콤보-실습.md, _private/raw/velog/AI-생태계-탐험-로그/2026-03-31-Sequential-Thinking-GitHub-Notion-3-MCP-콤보.md, _private/raw/velog/AI-생태계-탐험-로그/2026-04-01-Memory-Playwright-Notion-GitHub-4-MCP-콤보.md, _private/raw/velog/졸업작품-기록/2026-05-06-졸업작품-기록-22.md, _private/raw/velog/졸업작품-기록/2026-05-07-졸업작품-기록-23.md, _private/raw/velog/졸업작품-기록/2026-05-16-졸업작품-기록-33.md, _private/raw/velog/졸업작품-기록/2026-06-15-졸업작품-기록35.md, _private/raw/velog/졸업작품-기록/2026-06-29-졸업작품-기록-38.md]
 tags: [mcp, claude-code, playwright, 브라우저자동화]
 ---
 # Playwright MCP
@@ -53,6 +53,12 @@ Microsoft의 브라우저 자동화 프레임워크 Playwright를 MCP 서버로 
 
 - **UI 테스트 + GIF 녹화**: AI가 만든 HTML 테스트 UI에서 회원가입 → 로그인 → 내 정보 조회 흐름을 캡처하고 GIF로 녹화(960×540, 8프레임, 13.0초, 618KB).
 - **상태 수집기**: 포스팅 동기화 콤보에서 Velog 글 목록 페이지를 크롤링해 실제 포스팅 수(11편)를 세어 Memory 기준점과 비교하는 역할.
+- **졸업작품 [[띵동]]에서 쓴 곳**
+  - **JS 렌더링 부품몰 조사 (2026-05-06)**: 상세 페이지가 JavaScript로 렌더링돼 일반 검색으로는 정보가 안 긁혔다. playwright + [[firecrawl-mcp]]로 부품 9개의 직링크·가격·재고를 조사하게 맡기고, 결제 전 스크린샷으로 7건을 직접 다시 확인했다. 재고는 있는데 납기가 해외 1주일로 뜨는 모순처럼 페이지로 풀 수 없는 건 판매처에 문의했다.
+  - **라이브러리 호환성 사전 검증 (2026-05-07)**: firecrawl + playwright + context7 조합으로 GitHub 사례·Issue·블로그 글을 추적했다 → [[ai-산출물-검증]]
+  - **동적 로딩 명단 확인 (2026-05-16)**: 학생 크레딧 프로그램 자격 확인에서 공식 참여 기관 명단(32개)이 동적으로 로딩돼 일반 검색으로는 한계가 있었다. playwright로 명단을 확인해 12분 만에 결론을 냈다.
+  - **미니 E2E (기록 35)**: Flask와 Vite dev를 함께 띄우고 카드 렌더, Bearer 헤더, CORS 에러 0건, 요청 origin(proxy 경유), 콘솔 에러 0건을 확인했다 → [[react]], [[vite]]
+  - **육안으로 안 보이는 접근성 버그 (기록 38)**: radix Dialog drawer를 닫을 때 포커스 복원이 조용히 실패하는 것을 실측으로 잡았다 → [[web-accessibility]]
 
 ## 관련
 - [[mcp]]
@@ -62,6 +68,9 @@ Microsoft의 브라우저 자동화 프레임워크 Playwright를 MCP 서버로 
 - [[firecrawl-mcp]]
 - [[photocraft-mcp]]
 - [[scrapling-mcp]]
+- [[띵동]] · [[ai-산출물-검증]] · [[react]] · [[vite]] · [[web-accessibility]]
+- 원글: [졸업작품 기록 (22)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-22)
+- 원글: [졸업작품 기록 (33)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-33)
 - 원글: [Playwright MCP Server](https://velog.io/@xorms/Playwright-MCP-Server)
 - 원글: [Playwright + GitHub + Notion 3 MCP 콤보](https://velog.io/@xorms/Playwright-GitHub-Notion-3-MCP-%EC%BD%A4%EB%B3%B4-%EC%8B%A4%EC%8A%B5)
 - 원글: [Firecrawl MCP + 콤보 실습](https://velog.io/@xorms/Firecrawl-MCP-%EC%BD%A4%EB%B3%B4-%EC%8B%A4%EC%8A%B5)
