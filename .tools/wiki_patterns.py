@@ -16,7 +16,9 @@ SECRET_PATTERNS = {
     "AWS 키": r"AKIA[0-9A-Z]{16}",
     "Bearer 키": r"Bearer\s+[A-Za-z0-9._-]{20,}",
     "개인키": r"-----BEGIN [A-Z ]*PRIVATE KEY-----",
-    "키=값 형태 비밀값": r"(?i)(?:api[_-]?key|access[_-]?token|secret|password|passwd)\s*[:=]\s*['\"]?[A-Za-z0-9_\-./+]{16,}",
+    # 값에 숫자가 섞여 있고(진짜 키는 거의 항상 그렇다) 함수 호출 "(" 로 끝나지 않을 때만.
+    # access_token = refresh_access_token() / secret = settings.CLIENT_SECRET 같은 코드는 통과.
+    "키=값 형태 비밀값": r"(?i)(?:api[_-]?key|access[_-]?token|secret|password|passwd)\s*[:=]\s*['\"]?(?=[A-Za-z0-9_\-./+]*\d)[A-Za-z0-9_\-./+]{16,}(?![A-Za-z0-9_\-./+]*\()",
 }
 
 PII_PATTERNS = {

@@ -51,6 +51,15 @@ def lit(s):
 
 
 def list_posts(user):
+    """전체 글 목록. 페이지 경계에서 같은 글이 두 번 와도 한 번만 돌려준다."""
+    seen_ids = set()
+    for p in _list_posts_raw(user):
+        if p["id"] not in seen_ids:
+            seen_ids.add(p["id"])
+            yield p
+
+
+def _list_posts_raw(user):
     cursor = None
     while True:
         args = f"username: {lit(user)}, limit: {PAGE}" + (f", cursor: {lit(cursor)}" if cursor else "")
@@ -62,9 +71,36 @@ def list_posts(user):
         time.sleep(POLITE_DELAY)
 
 
+def series_counts(user):
+    """Velog가 알려주는 시리즈별 글 수. 목록 누락을 잡는 교차 확인용 (실패하면 None)."""
+    try:
+        rows = gql(f"{{ series_list(username: {lit(user)}) {{ name posts_count }} }}")["series_list"] or []
+        return {(r.get("name") or "").strip(): r.get("posts_count") for r in rows}
+    except Exception:
+        return None
+
+
+POST_FIELDS = "id title url_slug body tags is_private released_at updated_at series { name }"
+
+
 def fetch_post(user, slug):
-    q = f"{{ post(username: {lit(user)}, url_slug: {lit(slug)}) {{ id title url_slug body tags is_private released_at updated_at series {{ name }} }} }}"
-    return gql(q)["post"]
+    return gql(f"{{ post(username: {lit(user)}, url_slug: {lit(slug)}) {{ {POST_FIELDS} }} }}")["post"]
+
+
+def fetch_post_by_id(pid):
+    """글 고유 id로 조회. 주소(slug)가 겹치거나 깨진 글도 정확히 가져온다. 실패하면 None."""
+    try:
+        return gql(f"{{ post(id: {lit(pid)}) {{ {POST_FIELDS} }} }}")["post"]
+    except Exception:
+        return None
+
+
+def fetch_exact(user, p):
+    """id 조회를 먼저 시도하고, 안 되면 주소 조회로 대신한다."""
+    full = fetch_post_by_id(p["id"])
+    if full and full.get("id") == p["id"]:
+        return full
+    return fetch_post(user, p["url_slug"])
 
 
 # ── 저장소 ─────────────────────────────────────────
@@ -159,6 +195,17 @@ def main(argv=None):
         print("| 시리즈 | 전체 | 저장됨 | 새 글 |\n|---|---|---|---|")
         for name, (t, s, n) in sorted(stats.items(), key=lambda kv: -kv[1][0]):
             print(f"| {name} | {t} | {s} | {n} |")
+        counts = series_counts(a.user)
+        if counts is not None:
+            for name, (t, _, _) in stats.items():
+                want = counts.get(name)
+                if isinstance(want, int) and want != t:
+                    print(f"⚠️  [{name}] Velog 기준 {want}편인데 목록에서 {t}편만 받았습니다 — 목록 누락 가능성")
+        missing = [p for p in posts if p["id"] not in seen]
+        if missing and len(missing) <= 20:
+            print("\n아직 저장 안 된 글:")
+            for p in missing:
+                print(f"- [{series_name(p)}] {p['title']}")
         upd = sum(1 for _, v in todo if v)
         print(f"\n가져올 대상: 새 글 {len(todo) - upd}편" + (f", 수정본 {upd}편" if a.updates else ""))
         return 0
@@ -166,10 +213,22 @@ def main(argv=None):
     todo.sort(key=lambda t: t[0]["released_at"])  # 오래된 글부터 → 위키에 시간 순서대로 쌓임
     if a.limit:
         todo = todo[: a.limit]
-    saved = []
+    saved, skipped = [], []
     for p, is_update in todo:
-        full = fetch_post(a.user, p["url_slug"])
-        if not full or full.get("is_private"):
+        try:
+            full = fetch_exact(a.user, p)
+        except Exception as e:  # 한 편이 실패해도 나머지는 계속
+            skipped.append((p, f"오류: {e}"))
+            continue
+        if not full:
+            skipped.append((p, "본문 조회 결과 없음 (주소가 바뀌었거나 삭제됨)"))
+            continue
+        if full.get("is_private"):
+            skipped.append((p, "비공개 글"))
+            continue
+        if full.get("id") != p["id"]:  # 주소(slug)로 조회했는데 다른 글이 나옴 → 저장하면 엉뚱한 글이 중복 저장됨
+            skipped.append((p, f"주소 '{p['url_slug']}'로 조회했더니 다른 글이 나옴: "
+                               f"'{full.get('title')}' (id {str(full.get('id'))[:8]}, 주소 '{full.get('url_slug')}')"))
             continue
         saved.append(write_new(full, a.user, version=is_update))
         time.sleep(POLITE_DELAY)
@@ -177,6 +236,10 @@ def main(argv=None):
     print(f"저장 {len(saved)}편 → _private/raw/velog/")
     for s in saved:
         print(f"- {s}")
+    if skipped:
+        print(f"\n건너뜀 {len(skipped)}편 (다음 실행 때 다시 시도합니다):")
+        for p, why in skipped:
+            print(f"- [{series_name(p)}] {p['title']} — {why}")
     remain = len([1 for p in posts if p["id"] not in seen]) - len([1 for _, u in todo if not u])
     if a.limit and remain > 0:
         print(f"\n아직 {remain}편 남음 — 같은 명령을 다시 실행하면 이어서 가져옵니다.")
