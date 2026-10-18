@@ -25,8 +25,8 @@ PII_PATTERNS = {
     "이메일": r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}",
 }
 
-# 공개해도 되는 예시용 이메일
-_EMAIL_ALLOW = re.compile(r"(@example\.(com|org|net)$|@users\.noreply\.github\.com$|^noreply@)", re.I)
+# 공개해도 되는 예시용 이메일과, 이메일처럼 생긴 Git SSH 주소(git@github.com:user/repo)
+_EMAIL_ALLOW = re.compile(r"(@example\.(com|org|net)$|@users\.noreply\.github\.com$|^noreply@|^git@)", re.I)
 
 _COMPILED = [(label, re.compile(p), "secret") for label, p in SECRET_PATTERNS.items()] + [
     (label, re.compile(p), "pii") for label, p in PII_PATTERNS.items()
