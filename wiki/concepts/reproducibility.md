@@ -1,7 +1,7 @@
 ---
 type: concept
 modified: 2026-10-19
-sources: [_private/raw/velog/AI_LAB/2026-05-20-LAB-03.-기초를-다지자2.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-19.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-20.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-36.-파인튜닝-전체-학습검증.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-79.-사라진-학습-데이터를-똑같이-되살릴-수-있는가.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-80.-학습을-다시-하면-같은-숫자가-나오는가.md, _private/raw/velog/AI_LAB/2026-10-16-LAB-89.-실전-모듈이-학습-때와-똑같이-계산하는가.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-36.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-40.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-50.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-65-1bdolylo.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-67.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-73.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-78.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-83.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-87.md, _private/raw/velog/졸업작품-기록/2026-10-18-졸업작품-기록-94.md]
+sources: [_private/raw/velog/AI_LAB/2026-05-20-LAB-03.-기초를-다지자2.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-19.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-20.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-36.-파인튜닝-전체-학습검증.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-73.-채점-축-교체-정답률에서-정보량으로.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-74.-감정가-불일치-축-구간-나누기.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-79.-사라진-학습-데이터를-똑같이-되살릴-수-있는가.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-80.-학습을-다시-하면-같은-숫자가-나오는가.md, _private/raw/velog/AI_LAB/2026-10-16-LAB-89.-실전-모듈이-학습-때와-똑같이-계산하는가.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-36.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-40.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-50.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-65-1bdolylo.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-67.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-73.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-78.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-83.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-87.md, _private/raw/velog/졸업작품-기록/2026-10-18-졸업작품-기록-94.md]
 tags: [재현성, 시드, 실험설계, 학습-서빙-불일치]
 ---
 
@@ -60,8 +60,13 @@ tags: [재현성, 시드, 실험설계, 학습-서빙-불일치]
     - "Masking이 전체의 세 배" 같은 배수 표현은 분모가 작고 흔들려서 쉽게 출렁인다. 그래서 "세 번 모두 가장 크다"로 말한다.
     - 이전 서버에서 한 번 학습한 전체 순효과 +2.18은 재학습 3회의 범위(+0.45~+1.88) 밖이었다. 세 번 모두 더 작았다. 원문은 이를 "방향이 틀린 것이 아니라, 크기를 한 번의 학습으로 정한 것이 문제였음"이라고 해석한다.
 
-> [!warning] 모순
-> 이전 서버의 감정 수준 값이 LAB 80에는 +2.81, LAB 69·73에는 +3.06으로 적혀 있다. 확인이 필요하다.
+> [!note] 기록 간 차이 · 원인 미확인
+> 이전 서버의 한 번 학습 결과가 두 묶음으로 적혀 있다. 각 묶음은 자기 안에서 계산이 맞는다.
+> - LAB 69·73: 감정 수준 +3.06, 발화 개별 −0.95, 전체 순효과 +2.11 (3.06 − 0.95 = 2.11)
+> - LAB 74·80: 감정 수준 +2.81, 발화 개별 −0.64, 전체 순효과 +2.18
+>
+> 두 묶음이 서로 다른 학습 실행인지, 같은 예측을 다시 계산한 값인지는 원문에 없다. 감정 수준 값은 어느 쪽이든 재학습 범위(+2.52~+4.02) 안이라, LAB 80의 "서버 값도 범위 안"이라는 판정은 달라지지 않는다. → [[어조-기여-평가-지표]]
+> 확인 경로: 원문에 결과 파일이나 노트북 언급 없음
 
 - **실전 코드가 학습 때와 같은가 (LAB 89)**
   - 학습 데이터를 만든 스크립트와 실전 모듈은 따로 짠 코드다. 식이 같아도 발화 순서, 상태 초기화 시점, 표준화 통계가 다르면 값이 어긋난다.

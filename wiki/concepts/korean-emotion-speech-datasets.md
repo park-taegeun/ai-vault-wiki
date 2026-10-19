@@ -1,7 +1,7 @@
 ---
 type: concept
 modified: 2026-10-19
-sources: [_private/raw/velog/AI_LAB/2026-07-06-LAB-46.-한국어-감정-음성-데이터셋-선정기.md, _private/raw/velog/AI_LAB/2026-07-07-LAB-47.md, _private/raw/velog/AI_LAB/2026-07-08-LAB-50.md, _private/raw/velog/AI_LAB/2026-07-29-LAB-58.-표현-수준-융합-학습-파이프라인-설계-결정-4가지.md, _private/raw/velog/AI_LAB/2026-07-31-LAB-60.-표현수준-융합-본학습.md, _private/raw/velog/AI_LAB/2026-08-06-LAB-61.-LLM-융합-실험.md, _private/raw/velog/AI_LAB/2026-08-10-LAB-64.-발화-개별-편차의-정체.md, _private/raw/velog/AI_LAB/2026-08-13-LAB-65.-0812-랩미팅-피드백.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md, _private/raw/velog/AI_LAB/2026-08-26-LAB-70.-발화-개별-성분의-마이너스의-출처.md]
+sources: [_private/raw/velog/AI_LAB/2026-07-06-LAB-46.-한국어-감정-음성-데이터셋-선정기.md, _private/raw/velog/AI_LAB/2026-07-07-LAB-47.md, _private/raw/velog/AI_LAB/2026-07-08-LAB-50.md, _private/raw/velog/AI_LAB/2026-07-27-LAB-56.-감정-델타-검증프롬프트.md, _private/raw/velog/AI_LAB/2026-07-29-LAB-58.-표현-수준-융합-학습-파이프라인-설계-결정-4가지.md, _private/raw/velog/AI_LAB/2026-07-31-LAB-60.-표현수준-융합-본학습.md, _private/raw/velog/AI_LAB/2026-08-06-LAB-61.-LLM-융합-실험.md, _private/raw/velog/AI_LAB/2026-08-10-LAB-64.-발화-개별-편차의-정체.md, _private/raw/velog/AI_LAB/2026-08-13-LAB-65.-0812-랩미팅-피드백.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md, _private/raw/velog/AI_LAB/2026-08-26-LAB-70.-발화-개별-성분의-마이너스의-출처.md]
 tags: [dataset, aihub, etri, emotion, 한국어]
 ---
 
@@ -52,8 +52,13 @@ tags: [dataset, aihub, etri, emotion, 한국어]
   - 전사에 자동화 도구의 오류가 섞여 있다.
   - 라벨 일치도(κ)가 공개되어 있지 않다.
 
-> [!warning] 모순
-> LAB 46·58은 감정 라벨을 "15종", LAB 47·50은 "16종"이라고 쓴다. 대분류 15종에 NEUTRAL을 더한 것으로 보이지만 확인이 필요하다.
+> [!note] 기록 간 차이 · 원인 미확인
+> 감정 라벨 수가 글마다 다르다.
+> - 15종: LAB 46 (데이터 문서의 "감정 대분류 15종"), LAB 56 (프롬프트 실험의 "감정 15종 중 강제 선택"), LAB 58 ("15개 감정 중 정답 단어", 15-way)
+> - 16종: LAB 47 (script.txt 실측, NEUTRAL 38,376발화 포함), LAB 50 ("13종 + 극소 3종", 무작위 기준 16분의 1)
+>
+> 실측 16종보다 뒤에 쓴 LAB 56·58에서 다시 15종이 나온다. 15종이 NEUTRAL을 뺀 것인지는 원문에 없다.
+> 확인 경로: nb42/43 (LAB 56 프롬프트 실험의 감정 선택지)
 
 > [!note] 정정
 > 성우 발화 수는 151,683이다(LAB 47 규모 요약: "8인 × 각 약 18,960문장 = 총 151,683 발화"). 같은 글의 다른 줄에는 "총 151,680 발화"라고 적혀 있다. 이 값은 '약 18,960'을 8로 그대로 곱한 어림값이라 규모 요약을 따랐다 (정정).

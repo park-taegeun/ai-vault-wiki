@@ -1,6 +1,6 @@
 ---
 type: tool
-modified: 2026-10-18
+modified: 2026-10-19
 sources: [_private/raw/velog/졸업작품-기록/2026-05-07-졸업작품-기록-23.md, _private/raw/velog/졸업작품-기록/2026-05-09-졸업작품-기록-27.md, _private/raw/velog/졸업작품-기록/2026-05-11-졸업작품-기록-29.md, _private/raw/velog/졸업작품-기록/2026-05-11-졸업작품-기록-30.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-36.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-37.md]
 tags: [임베디드, 빌드도구, esp32, arduino]
 ---
@@ -55,8 +55,13 @@ tags: [임베디드, 빌드도구, esp32, arduino]
   - PR #4에서 `build_src_filter = -<*> +<main.cpp>`로 영구 수정했다. RAM 13.8% / Flash 25.8%로 5/8 원본 poc footprint와 정확히 일치해 원래 상태 복구를 수치로 확인했다. "모든 env는 `-<*>` 먼저"로 규칙을 명문화했다.
   - blacklist는 "지금 있는 파일 기준"이라 파일이 추가될 때마다 제외 목록도 고쳐야 한다. whitelist는 명시하지 않으면 아무것도 안 들어와 [[monorepo]] 구조에서 안전하다.
 
-> [!warning] 모순
-> 기록 36은 5월 시점 `env:poc`를 `build_src_filter = +<*> -<camera_test_v1.cpp>`로, 기록 37은 `+<*> -<camera_test_v1.cpp> -<camera_common.cpp>`로 적었다. 제외 목록에 `camera_common.cpp`가 있었는지 확인 필요 (blacklist였다는 결론은 같다).
+> [!note] 기록 간 차이 · 원인 미확인
+> 5월 시점 `env:poc`의 빌드 필터가 두 기록에서 다르게 적혀 있다.
+> - 기록 36 (2026-06-23): `build_src_filter = +<*> -<camera_test_v1.cpp>`
+> - 기록 37 (2026-06-23, 같은 날): `build_src_filter = +<*> -<camera_test_v1.cpp> -<camera_common.cpp>`
+>
+> 두 기록 모두 blacklist 방식이었다는 결론은 같다. 함께 적힌 에러(`setup()`/`loop()` 중복 정의)로는 `camera_common.cpp`가 제외 목록에 있었는지 가릴 수 없다.
+> 확인 경로: 프로젝트 레포의 `platformio.ini` 변경 이력 (`env:poc`)
 
 ## 관련
 - [[esp32-s3]] · [[vl53l5cx]] · [[clangd]] · [[monorepo]] · [[single-source-of-truth]] · [[ai-산출물-검증]] · [[reproducibility]] · [[띵동]]
