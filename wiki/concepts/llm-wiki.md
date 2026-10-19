@@ -1,6 +1,6 @@
 ---
 type: concept
-modified: 2026-10-18
+modified: 2026-10-19
 sources: [_private/raw/velog/AI-생태계-탐험-로그/2026-10-18-카파시의-LLM-Wiki를-Claude-Code로-직접-구현하기.md]
 tags: [llm-wiki, knowledge-base, rag, claude-code, obsidian]
 ---
@@ -24,6 +24,12 @@ Andrej Karpathy가 제안한 패턴. LLM을 "사서"로 두는 개인 위키로,
   | 결과물 | 매번 사라지는 답변 | 남아서 쌓이는 마크다운 페이지 |
   | 모순 처리 | 조각끼리 충돌해도 모름 | 넣을 때 기존 페이지와 대조해 표시 |
   | 사람이 보기 | 벡터DB라 들여다보기 어려움 | Obsidian 그래프·웹사이트로 탐색 |
+
+### 결정과 이유
+- **대량 넣기는 single writer(단일 작성자)**
+  - 골랐다: 서브에이전트는 `_private/drafts/`에 초안만 쓰고, 병합·목차·로그는 메인 에이전트 혼자 고친다.
+  - 왜: 원본 88편을 빨리 처리하려고 서브에이전트를 병렬로 띄웠는데, 여럿이 동시에 같은 페이지를 고치면 서로의 수정을 덮어쓴다.
+  - 버렸다: 서브에이전트마다 위키를 직접 고치는 병렬 쓰기. → [[nested-agent]]
 
 ## 언제 쓰나 (상황 예시)
 - 한 사람이나 작은 팀이 오래 쌓고 직접 읽기도 하는 기록 → LLM Wiki.
