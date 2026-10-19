@@ -14,7 +14,7 @@ tags: [sql, database, oracle]
 |---|---|---|
 | DML | SELECT, INSERT, UPDATE, DELETE, MERGE | 데이터 조회·입력·수정·삭제 |
 | DDL | CREATE, ALTER, DROP, RENAME, TRUNCATE | 구조(스키마) 정의. Oracle에서는 자동 커밋 |
-| DCL | GRANT, REVOKE (사용자 생성·삭제도 이쪽으로 분류) | 권한. 권한 묶음은 `CREATE ROLE` 뒤 롤을 GRANT |
+| DCL | CREATE USER, DROP USER, GRANT, REVOKE | 사용자·권한. 권한 묶음은 `CREATE ROLE` 뒤 롤을 GRANT. 참고: 일반 분류에서 CREATE/DROP USER는 DDL이다 |
 | TCL | COMMIT, ROLLBACK, SAVEPOINT | 트랜잭션 제어 → [[트랜잭션]] |
 
 - `UPDATE`는 데이터를, `ALTER`는 구조를 바꾼다.
