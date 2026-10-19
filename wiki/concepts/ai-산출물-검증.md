@@ -74,6 +74,7 @@ AI(코딩 에이전트·LLM)에게 맡긴 조사·코드·보고·권고를 그�
 - [[single-source-of-truth]] · [[대조-가드]] · [[구현-전-사전-테스트]] · [[미결-실재-확인]] · [[fault-injection]] · [[모델-교체-판단]] · [[화면이-아는-만큼만-말하기]] · [[data-leakage]] · [[test-network-isolation]] · [[keras-savedmodel]] · [[reproducibility]] · [[nested-agent]] · [[띵동]]
 - [[ai-vault]] — 규칙(팻말)과 강제(자물쇠)를 나눠 AI 사서의 쓰기를 시스템이 검사하는 구조
 - [[context7-mcp]] · [[github-mcp]] · [[firecrawl-mcp]] · [[sequential-thinking-mcp]] · [[playwright-mcp]]
+- [[관광데이터-공모전]] · [[전통주정보-api]] — 공모전 데이터 분석을 두 세션의 적대적 재현으로 교차검증한 사례
 - 원글: [졸업작품 기록 (19)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-19)
 - 원글: [졸업작품 기록 (24)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-24)
 - 원글: [졸업작품 기록 (31)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-31)

@@ -45,6 +45,7 @@ tags: [pandas, python, 데이터처리, 시간정렬]
 
 ## 관련
 - [[회의-음성-어조-분석-연구]] · [[wsl2-cuda-setup]] · [[reproducibility]]
+- [[sql]] — DataFrame merge와 같은 조인 개념
 - 원글: [LAB 02. 기초를 다지자](https://velog.io/@xorms/LAB-03.-%EA%B8%B0%EC%B4%88%EB%A5%BC-%EB%8B%A4%EC%A7%80%EC%9E%90)
 - 원글: [LAB 03. 기초를 다지자(2)](https://velog.io/@xorms/LAB-03.-%EA%B8%B0%EC%B4%88%EB%A5%BC-%EB%8B%A4%EC%A7%80%EC%9E%902)
 - 원글: [LAB 04. 기초를 다지자(3)](https://velog.io/@xorms/LAB-04.-%EA%B8%B0%EC%B4%88%EB%A5%BC-%EB%8B%A4%EC%A7%80%EC%9E%903)

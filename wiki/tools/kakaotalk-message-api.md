@@ -60,6 +60,7 @@ tags: [카카오, 메시지, oauth, 알림]
 
 ## 관련
 - [[flask]] · [[sqlalchemy]] · [[2단계-알림]] · [[web-accessibility]] · [[https-tls]] · [[구현-전-사전-테스트]] · [[idempotency-key]] · [[화면이-아는-만큼만-말하기]] · [[asr]] · [[ai-산출물-검증]] · [[http-timeout]] · [[띵동]]
+- [[kakao-local-api]] — 같은 카카오지만 별개인 장소 검색 API
 - 원글: [졸업작품 기록 (7)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-7)
 - 원글: [졸업작품 기록 (20)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-20)
 - 원글: [졸업작품 기록 (32)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-32)

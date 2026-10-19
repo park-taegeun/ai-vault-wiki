@@ -51,6 +51,7 @@ tags: [mcp, firecrawl, crawling, rag]
 - [[mcp]]
 - [[mcp-scope]]
 - [[playwright-mcp]] — 웹 도구 비교
+- [[kakao-local-api]] — 카카오 디벨로퍼스 공식 문서를 크롤링해 응답 스키마를 확인한 사례
 - [[mcp-combo]] — Firecrawl + GitHub + Notion + Sequential Thinking 뉴스 모니터링
 - [[sequential-thinking-mcp]]
 - [[memory-mcp]] — 시리즈 다음 편(수집한 정보가 휘발되는 한계를 해결)

@@ -1,8 +1,8 @@
 ---
 type: concept
-modified: 2026-10-18
-sources: [_private/raw/velog/졸업작품-기록/2026-05-07-졸업작품-기록-23.md, _private/raw/velog/졸업작품-기록/2026-05-07-졸업작품-기록-24.md, _private/raw/velog/졸업작품-기록/2026-05-09-졸업작품-기록-27.md, _private/raw/velog/졸업작품-기록/2026-05-12-졸업작품-기록-31.md, _private/raw/velog/졸업작품-기록/2026-05-14-졸업작품-기록-32.md, _private/raw/velog/졸업작품-기록/2026-06-14-졸업작품-기록34.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-36.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-37.md, _private/raw/velog/졸업작품-기록/2026-06-29-졸업작품-기록-38.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-41.md, _private/raw/velog/졸업작품-기록/2026-07-07-졸업작품-기록-43.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-49.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-51.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-55.md, _private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-56.md, _private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-58.md, _private/raw/velog/졸업작품-기록/2026-09-10-졸업작품-기록-62.md, _private/raw/velog/졸업작품-기록/2026-10-17-졸업작품-기록-92.md, _private/raw/velog/졸업작품-기록/2026-10-17-졸업작품-기록-93.md]
-tags: [프로젝트관리, 문서화, ai협업, 정합성]
+modified: 2026-10-19
+sources: [_private/raw/velog/졸업작품-기록/2026-05-07-졸업작품-기록-23.md, _private/raw/velog/졸업작품-기록/2026-05-07-졸업작품-기록-24.md, _private/raw/velog/졸업작품-기록/2026-05-09-졸업작품-기록-27.md, _private/raw/velog/졸업작품-기록/2026-05-12-졸업작품-기록-31.md, _private/raw/velog/졸업작품-기록/2026-05-14-졸업작품-기록-32.md, _private/raw/velog/졸업작품-기록/2026-06-14-졸업작품-기록34.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-36.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-37.md, _private/raw/velog/졸업작품-기록/2026-06-29-졸업작품-기록-38.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-41.md, _private/raw/velog/졸업작품-기록/2026-07-07-졸업작품-기록-43.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-49.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-51.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-55.md, _private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-56.md, _private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-58.md, _private/raw/velog/졸업작품-기록/2026-09-10-졸업작품-기록-62.md, _private/raw/velog/졸업작품-기록/2026-10-17-졸업작품-기록-92.md, _private/raw/velog/졸업작품-기록/2026-10-17-졸업작품-기록-93.md, _private/raw/notion/프로젝트/2026 관광데이터 활용 공모전/개발 트래킹 3aad8df03cab819bbabbe4963df37c9a.md]
+tags: [프로젝트관리, 문서화, ai협업, 정합성, 관광데이터-공모전]
 ---
 
 ## 한 줄 정의
@@ -50,9 +50,14 @@ tags: [프로젝트관리, 문서화, ai협업, 정합성]
 - **"돌릴 수 있는 도구"와 "돌렸다는 기록"은 다르다 (기록 58)**: "기존 회귀 검사 세트를 다시 돌려라"라고 적었는데 그런 파일이 없었다. 이번에 실제 파일로 30개 케이스를 남겼다.
 - **클래스 목록 (기록 93)**: 데모 데이터 테스트는 서버 쪽 단일 출처를 읽는다. 테스트가 읽지 않는 목록을 바꿔도 테스트가 통과해서, 그 위치를 바꾸는 건 효과 없는 조작임을 확인했다.
 - 한계: 펌웨어 헤더와 서버 상수처럼 두 곳에 따로 적힌 값은 여전히 사람이 같이 고쳐야 한다. 대조 테스트는 어긋남을 드러낼 뿐이다.
+- **팀 공모전의 개발 트래킹 (2026-07)**: [[관광데이터-공모전]]에서는 노션의 '개발 트래킹' 한 페이지를 개발 진행의 정본으로 정했다. 상세 근거는 'API 분석' 페이지로 넘기고, 항목마다 [담당] / 완료 기준(DoD) / 근거 위치를 붙였다.
+  - 상태값은 TODO → IN_PROGRESS → VERIFYING(검증중) → DONE / BLOCKED(막힘)로 고정했다.
+  - 구역 순서: 상단 고정(다음 마일스톤·파이프라인 상태) → 지금 할 일 → 다음 → 대기·결정 필요 → 완료(검증 자산) → 리스크 레지스터 → 검증 기준값(골든 스냅샷) → 정정 사항
+  - 띵동에서 노션은 "사람이 보는 화면이지 기준이 아니"었지만, 여기서는 노션 페이지 하나가 정본이었다. 정본이 어디에 있느냐보다 "한 곳"이라는 점이 핵심이다.
+- **정본 숫자는 고치지 않고 정정을 덧붙인다 (2026-07-30)**: 골든 스냅샷 원문은 재계산·수정 금지로 두고, 표기 오류는 별도 "정정 사항" 절에 주석으로 달았다. "양조장 raw 556"은 실제로는 제품 데이터 안의 양조장명 distinct 개수였고, 마스터 양조장 raw는 59였다 → [[대조-가드]]
 
 ## 관련
-- [[ai-산출물-검증]] · [[대조-가드]] · [[미결-실재-확인]] · [[monorepo]] · [[github-flow]] · [[platformio]] · [[keras-savedmodel]] · [[data-augmentation]] · [[flask]] · [[nested-agent]] · [[github-mcp]] · [[notion-mcp]] · [[design-tokens]] · [[띵동]]
+- [[ai-산출물-검증]] · [[대조-가드]] · [[미결-실재-확인]] · [[monorepo]] · [[github-flow]] · [[platformio]] · [[keras-savedmodel]] · [[data-augmentation]] · [[flask]] · [[nested-agent]] · [[github-mcp]] · [[notion-mcp]] · [[design-tokens]] · [[띵동]] · [[관광데이터-공모전]]
 - 원글: [졸업작품 기록 (24)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-24)
 - 원글: [졸업작품 기록 (43)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-43)
 - 원글: [졸업작품 기록 (62)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-62)

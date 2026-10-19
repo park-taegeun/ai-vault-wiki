@@ -27,5 +27,6 @@ tags: [api, 중복방지, 재시도, 임베디드]
 
 ## 관련
 - [[flask]] · [[sqlalchemy]] · [[http-timeout]] · [[esp32-s3]] · [[kakaotalk-message-api]] · [[2단계-알림]] · [[띵동]]
+- [[트랜잭션]] — DB 트랜잭션보다 한 층 위에서 중복 반영을 막는 장치
 - 원글: [졸업작품 기록 (34)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D34)
 - 원글: [졸업작품 기록 (64)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-64)
