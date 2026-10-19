@@ -41,4 +41,5 @@ tags: [agent, claude-code, subagent, parallel]
 - [[slack-mcp]] — 시리즈 이전 편
 - [[photocraft-mcp]]
 - [[ruflo]]
+- [[claude-code]] — 서브에이전트를 돌리는 하네스
 - 원글: [Claude Code Nested Agent](https://velog.io/@xorms/Claude-Code-Nested-Agent)

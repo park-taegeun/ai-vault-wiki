@@ -42,6 +42,7 @@ TLS로 암호화한 HTTP다. 클라이언트는 서버 인증서를 검증해 �
 
 ## 관련
 - [[nginx-gunicorn]] · [[aws-ec2]] · [[flask]] · [[esp32-s3]] · [[2단계-알림]] · [[kakaotalk-message-api]] · [[띵동]]
+- [[jwt]] — Refresh Token 쿠키의 Secure 속성은 HTTPS에서만
 - 원글: [졸업작품 기록 (6)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-6)
 - 원글: [졸업작품 기록 (25)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-25)
 - 원글: [졸업작품 기록 (48)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-48)

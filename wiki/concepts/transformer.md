@@ -39,5 +39,6 @@ tags: [transformer, attention, encoder, decoder, bert, gpt]
 
 ## 관련
 - [[huggingface-transformers]] · [[gemma-4]] · [[lora]] · [[sarcasm-detection]] · [[회의-음성-어조-분석-연구]]
+- [[eeg-감정-인식]] — 두 특징을 Cross-Attention으로 융합한 사례
 - 원글: [LAB 06. 기초를 다지자(4)](https://velog.io/@xorms/LAB-06.-%EA%B8%B0%EC%B4%88%EB%A5%BC-%EB%8B%A4%EC%A7%80%EC%9E%904)
 - 원글: [LAB 07. 기초를 다지자 (5)](https://velog.io/@xorms/LAB-%EA%B8%B0%EC%B4%88%EB%A5%BC-%EB%8B%A4%EC%A7%80%EC%9E%90-5)

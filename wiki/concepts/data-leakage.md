@@ -57,5 +57,6 @@ tags: [ML, 평가, 데이터, 누수]
 
 ## 관련
 - [[transfer-learning]] · [[data-augmentation]] · [[현관-소리-학습-데이터]] · [[reproducibility]] · [[미결-실재-확인]] · [[ai-산출물-검증]] · [[fault-injection]] · [[데이터-라벨-감사]] · [[띵동]]
+- [[eeg-감정-인식]] — 정규화 기준으로 쓴 trial을 학습·평가에서 뺀 사례
 - 원글: [졸업작품 기록 (67)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-67)
 - 원글: [졸업작품 기록 (72)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-72)

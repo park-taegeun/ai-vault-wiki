@@ -1,8 +1,8 @@
 ---
 type: concept
 modified: 2026-10-19
-sources: [비공개 원본]
-tags: [sql, database, oracle]
+sources: [비공개 원본, _private/raw/notion/Backend/세션 정리/2주차 - SpringBoot의 이해/실습/MySQL 302d8df03cab80979f22deb482953e5f.md, _private/raw/notion/Backend/과제/2주차 - MySQL 작성 및 스프링 부트 연동 303d8df03cab809f83aae52395c2d26b.md]
+tags: [sql, database, oracle, mysql]
 ---
 
 ## 한 줄 정의
@@ -151,6 +151,29 @@ RANK() OVER (PARTITION BY dept ORDER BY sal DESC)
 ### 관계대수와의 대응
 SQL 뒤의 이론은 관계대수(절차로 표현)와 관계해석(원하는 것만 표현)이다. σ(셀렉트)는 WHERE처럼 행을, π(프로젝트)는 SELECT 목록처럼 열을 고른다. ⨝은 조인, ×는 카티션 프로덕트, ÷(디비전)는 A(X, Y) ÷ B(Y)일 때 B의 모든 튜플과 짝을 이루는 A의 X 값을 돌려준다.
 
+### MySQL 터미널에서 처음 쓰는 명령 (멋쟁이사자처럼 13기 백엔드 2주차)
+위 예시는 Oracle 기준이고, 아래는 MySQL을 터미널에서 다룰 때 쓴 것이다. 접속은 `mysql -u root -p` 후 비밀번호를 입력하고 `mysql>`이 나오면 성공, 종료는 `\q`다.
+
+```sql
+CREATE DATABASE 이름;   -- DB 생성
+USE 이름;               -- 작업할 DB로 이동
+SHOW DATABASES;         -- 모든 DB
+SHOW TABLES;            -- 현재 DB의 모든 테이블
+DESC 테이블;            -- 테이블 구조
+
+CREATE TABLE student (
+  id   INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(10) NOT NULL,
+  age  INT
+);
+
+ALTER TABLE student            -- 컬럼 여러 개를 한 문장에서 추가
+  ADD COLUMN department VARCHAR(20),
+  ADD COLUMN student_num INT;
+```
+- `AUTO_INCREMENT`는 행을 넣을 때 값을 자동으로 1씩 올려 준다. JPA에서는 `GenerationType.IDENTITY`가 이것과 이어진다. → [[spring-boot]], [[spring-data-jpa]]
+- 원본 노트에는 `ALTER TABLE stuent`로 적혀 있었다. 같은 노트에서 만든 테이블 이름 `student`에 따라 고쳤다 (정정).
+
 ## 언제 쓰나 (상황 예시)
 - 조건에 NULL이 섞일 수 있는 필터: `IN` 목록에 NULL을 넣어도 NULL 행은 안 잡힌다. `OR COL1 IS NULL`을 따로 붙인다.
 - 같은 이름 컬럼이 여러 개인 두 테이블을 이을 때: NATURAL JOIN은 의도하지 않은 컬럼까지 조건에 넣으므로 USING이나 ON으로 명시한다.
@@ -170,3 +193,4 @@ SQL 뒤의 이론은 관계대수(절차로 표현)와 관계해석(원하는 �
 - [[db-인덱스]] — PK가 만드는 UNIQUE 인덱스, WHERE·JOIN 조건 컬럼
 - [[이름-정규화-조인]] — 공용 키 없이 이름으로 조인한 사례
 - [[pandas]] — DataFrame merge도 같은 조인 개념
+- [[spring-boot]] · [[spring-data-jpa]] — MySQL을 Spring Boot에 연동해 테이블을 API로 조회

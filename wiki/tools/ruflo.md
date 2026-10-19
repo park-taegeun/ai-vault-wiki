@@ -1,7 +1,7 @@
 ---
 type: tool
-modified: 2026-10-18
-sources: [_private/raw/velog/AI-생태계-탐험-로그/2026-10-11-Claude-Code에-Ruflo-붙여보기.md]
+modified: 2026-10-19
+sources: [_private/raw/velog/AI-생태계-탐험-로그/2026-10-11-Claude-Code에-Ruflo-붙여보기.md, _private/raw/notion/Vibe Coding/Claude Code/에이전트 개념 사전 3f6d8df03cab813ab699d98ecb701995.md]
 tags: [claude-code, agent, harness, hook, 검증]
 ---
 ## 한 줄 정의
@@ -25,6 +25,17 @@ Ruflo(옛 이름 Claude Flow, MIT)는 Claude Code 위에 훅·MCP·메모리·�
 
 - Ruflo가 만든 설정 문서에 직접 "실행은 Claude Code의 Agent 도구, 조정은 Ruflo MCP 도구"라고 적혀 있다. Ruflo는 일을 직접 하지 않는다.
 - "AI 직원 100명"은 동시 작업 인원이 아니라 에이전트 카탈로그(정의 목록) 수다. Claude 사용량은 그대로 차감된다.
+- 처음엔 에이전트 **4~8개**로 시작하는 것을 권장한다(개념 사전 2026-10-11 기준).
+- **벡터 메모리 예시**: "기능 변경 뒤 단위 테스트와 린트를 모두 실행한다"로 저장해 두면 "기능 변경 뒤 검증"으로 검색해도 찾아진다는 것이 원리 설명이다. 한국어에서 이 검색이 실패한 실측은 아래 "메모리 — 한국어 의미 검색의 함정".
+- 설치하면 생기는 파일
+
+| 파일·폴더 | 정체 |
+|---|---|
+| `CLAUDE.md` | Ruflo 사용법이 적힌 매뉴얼 |
+| `.claude/settings.json` | 훅과 모드 설정 |
+| `.claude/agents/` | 에이전트 직무 기술서 (개념 사전에 "설치 후 확인 필요"로 적힘) |
+| `.claude/skills/` | 스킬 |
+| `.claude-flow/` | Ruflo 자체 데이터 (메모리 저장소 등) |
 
 ### Claude Code 확장 부품 — 실행을 누가 정하나
 | 부품 | 실행 결정 |
@@ -38,7 +49,7 @@ Ruflo(옛 이름 Claude Flow, MIT)는 Claude Code 위에 훅·MCP·메모리·�
 - **훅만 무조건 실행된다.** 구조는 이벤트 → 매처 → 핸들러. SessionStart, UserPromptSubmit, PreToolUse(차단 가능), PostToolUse, Stop 등 30개 이상.
 - 차단하려면 **exit 2**. exit 1은 차단되지 않는다(함정).
 - Claude Code 2.1.287부터 모드(Mod, 내부 JS 함수 + UI)가 생겼는데 샌드박스 없이 무조건 실행된다.
-- 훅 저장 위치 = 적용 범위 → [[mcp-scope]]
+- 훅 저장 위치 = 적용 범위 → [[mcp-scope]]. 훅 개념 전체는 [[claude-code-hook]].
 
 ## 언제 쓰나 (상황 예시)
 - 작은 기능 단위 작업이라면 **Ruflo 없이** Claude Code 기본 서브에이전트 + 잘 짠 프롬프트(역할·제약·검증·관찰 기록)로 같은 역할 분담이 가능했다. → [[nested-agent]]
@@ -117,6 +128,7 @@ npx ruflo@3.56.5 swarm init --topology hierarchical --max-agents 8 --strategy sp
 4. AI의 제안도 소스로 검증
 
 ## 관련
+- [[claude-code]] · [[claude-code-hook]]
 - [[nested-agent]]
 - [[mcp]]
 - [[mcp-scope]]

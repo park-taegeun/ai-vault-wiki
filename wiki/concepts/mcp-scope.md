@@ -65,6 +65,7 @@ Claude Code 훅도 저장 위치가 적용 범위를 정한다. ([[ruflo]])
 
 ## 관련
 - [[mcp]]
+- [[claude-code-hook]] — 훅도 저장 위치가 곧 적용 범위
 - [[mcp-combo]]
 - [[context7-mcp]] · [[github-mcp]] · [[notion-mcp]] · [[playwright-mcp]]
 - [[scrapling-mcp]]

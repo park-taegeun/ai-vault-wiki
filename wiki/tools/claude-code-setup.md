@@ -112,6 +112,7 @@ SNS 가이드의 5개는 성격이 세 종류였다.
 | `git branch -d` 거부 | Squash 병합이라 원래 커밋이 main 이력에 없음 | `-D`로 삭제 |
 
 ## 관련
+- [[claude-code]] · [[claude-code-hook]] — 훅 개념(이벤트·매처·핸들러, exit 2)
 - [[claude-mem]] — 같은 가이드의 다음 도구
 - [[photocraft-mcp]] — 이전 편
 - [[mcp-scope]] — 플러그인 설치 범위(user/project/local)와 같은 구조

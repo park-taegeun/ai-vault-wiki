@@ -1,6 +1,6 @@
 ---
 type: concept
-modified: 2026-10-18
+modified: 2026-10-19
 sources: [_private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-6.md, _private/raw/velog/졸업작품-기록/2026-04-11-졸업작품-기록10.md, _private/raw/velog/졸업작품-기록/2026-04-27-졸업작품-기록-13.md]
 tags: [nginx, gunicorn, wsgi, 배포]
 ---
@@ -27,6 +27,7 @@ Nginx(리버스 프록시·SSL 처리) → Gunicorn(WSGI 서버) → Flask(WSGI 
 
 ## 관련
 - [[flask]] · [[https-tls]] · [[aws-ec2]] · [[yamnet]] · [[구현-전-사전-테스트]] · [[vite]] · [[띵동]]
+- [[jwt]] — CORS를 앱이 아니라 Nginx에서 검증한다는 Spring 실습 자료의 주석
 - 원글: [졸업작품 기록 (6)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-6)
 - 원글: [졸업작품 기록 (10)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D10)
 - 원글: [졸업작품 기록 (13)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-13)

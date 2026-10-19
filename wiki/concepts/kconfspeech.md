@@ -1,7 +1,7 @@
 ---
 type: concept
 modified: 2026-10-19
-sources: [_private/raw/velog/AI_LAB/2026-06-01-LAB-22.-KconfSpeech-회의-ASR-평가.md, _private/raw/velog/AI_LAB/2026-06-01-LAB-23.-KconfSpeech-다중-세션-평가-환각-트리거-분석.md, _private/raw/velog/AI_LAB/2026-06-02-LAB-26.-Gemma-4-ASR-파인튜닝-1-도메인-적응-목표-설정과-데이터-준비.md, _private/raw/velog/AI_LAB/2026-06-19-LAB-34.-파인튜닝-데이터-전처리.md, _private/raw/velog/AI_LAB/2026-07-13-LAB-51.-랩미팅-피드백-어조분석-오디오-모듈-설계.md, _private/raw/velog/AI_LAB/2026-07-13-LAB-53.-오디오-모듈-구출-및-전체-확장.md, _private/raw/velog/AI_LAB/2026-07-14-LAB-54.-음향-벡터를-LLM에-어떻게-넣을-것인가.md]
+sources: [_private/raw/notion/LAB/랩미팅/0716/스크립트 39ed8df03cab8045a8e4f248818810ab.md, _private/raw/velog/AI_LAB/2026-06-01-LAB-22.-KconfSpeech-회의-ASR-평가.md, _private/raw/velog/AI_LAB/2026-06-01-LAB-23.-KconfSpeech-다중-세션-평가-환각-트리거-분석.md, _private/raw/velog/AI_LAB/2026-06-02-LAB-26.-Gemma-4-ASR-파인튜닝-1-도메인-적응-목표-설정과-데이터-준비.md, _private/raw/velog/AI_LAB/2026-06-19-LAB-34.-파인튜닝-데이터-전처리.md, _private/raw/velog/AI_LAB/2026-07-13-LAB-51.-랩미팅-피드백-어조분석-오디오-모듈-설계.md, _private/raw/velog/AI_LAB/2026-07-13-LAB-53.-오디오-모듈-구출-및-전체-확장.md, _private/raw/velog/AI_LAB/2026-07-14-LAB-54.-음향-벡터를-LLM에-어떻게-넣을-것인가.md]
 tags: [dataset, aihub, asr, 회의음성]
 ---
 
@@ -29,6 +29,7 @@ AI Hub에서 공개한 한국어 회의 음성 데이터셋이다. 이 연구에
 > - S16 세션 발화 수
 >   - LAB 51: 623개 (세션 중 가장 많음)
 >   - LAB 53: 벡터 계산은 621개 기준이다(621 × 63 = 39,123). 같은 글의 성별 구성 "남 517 / 여 106"은 합이 623이다.
+>   - 노션 0716 랩미팅 발표: 같은 S16 실험을 "621개 발화", "남자 발화 515개, 여자 106개"로 적는다(합 621).
 >
 > 확인 경로: nb33 (LAB 53의 S16 621발화 실험), LAB 53의 10세션 확장 결과
 

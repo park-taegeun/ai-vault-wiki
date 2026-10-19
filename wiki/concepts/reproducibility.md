@@ -1,7 +1,7 @@
 ---
 type: concept
 modified: 2026-10-19
-sources: [_private/raw/velog/AI_LAB/2026-05-20-LAB-03.-기초를-다지자2.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-19.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-20.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-36.-파인튜닝-전체-학습검증.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-73.-채점-축-교체-정답률에서-정보량으로.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-74.-감정가-불일치-축-구간-나누기.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-79.-사라진-학습-데이터를-똑같이-되살릴-수-있는가.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-80.-학습을-다시-하면-같은-숫자가-나오는가.md, _private/raw/velog/AI_LAB/2026-10-16-LAB-89.-실전-모듈이-학습-때와-똑같이-계산하는가.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-36.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-40.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-50.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-65-1bdolylo.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-67.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-73.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-78.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-83.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-87.md, _private/raw/velog/졸업작품-기록/2026-10-18-졸업작품-기록-94.md]
+sources: [_private/raw/notion/LAB/랩미팅/0901 3c0d8df03cab807d9826c3fdda215764.md, _private/raw/notion/LAB/랩미팅/1008 3dfd8df03cab80ffa089c02e18d18287.md, _private/raw/velog/AI_LAB/2026-05-20-LAB-03.-기초를-다지자2.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-19.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-20.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-36.-파인튜닝-전체-학습검증.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-73.-채점-축-교체-정답률에서-정보량으로.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-74.-감정가-불일치-축-구간-나누기.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-79.-사라진-학습-데이터를-똑같이-되살릴-수-있는가.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-80.-학습을-다시-하면-같은-숫자가-나오는가.md, _private/raw/velog/AI_LAB/2026-10-16-LAB-89.-실전-모듈이-학습-때와-똑같이-계산하는가.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-36.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-40.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-50.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-65-1bdolylo.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-67.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-73.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-78.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-83.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-87.md, _private/raw/velog/졸업작품-기록/2026-10-18-졸업작품-기록-94.md]
 tags: [재현성, 시드, 실험설계, 학습-서빙-불일치]
 ---
 
@@ -59,6 +59,9 @@ tags: [재현성, 시드, 실험설계, 학습-서빙-불일치]
     - **그 크기를 숫자 하나로 말할 수는 없다.**
     - "Masking이 전체의 세 배" 같은 배수 표현은 분모가 작고 흔들려서 쉽게 출렁인다. 그래서 "세 번 모두 가장 크다"로 말한다.
     - 이전 서버에서 한 번 학습한 전체 순효과 +2.18은 재학습 3회의 범위(+0.45~+1.88) 밖이었다. 세 번 모두 더 작았다. 원문은 이를 "방향이 틀린 것이 아니라, 크기를 한 번의 학습으로 정한 것이 문제였음"이라고 해석한다.
+    - Masking 외 구간도 세 번 모두 같은 모양이었다. Congruent는 0 근처, Coping은 작은 플러스였다(1008 랩미팅).
+    - 시드 세 번 사이의 차이는 설계가 아니라 우연만으로 생기는 폭이다. 이후 비교(실전용 층2 등)는 이 폭을 판단 기준으로 썼다.
+- **대조군을 다시 조립할 때 난수를 다시 소비하지 않는다 (0901 랩미팅)**: 층2 벡터를 새로 만들면 대조군도 다시 조립해야 한다. 대조군 생성 프로그램을 그냥 다시 돌리면 난수를 새로 소비해 평가 화자 명단과 짝짓기가 전부 바뀌고, 이전 결과와 비교할 수 없게 된다. 그래서 기존 학습 데이터에 들어 있던 배정을 복원해 짝짓기는 그대로 두고 벡터만 바꿨다. 126차로 넓힐 때도 같은 배정 인덱스를 재사용했다. → [[어조-성분-분해]]
 
 > [!note] 기록 간 차이 · 원인 미확인
 > 이전 서버의 한 번 학습 결과가 두 묶음으로 적혀 있다. 각 묶음은 자기 안에서 계산이 맞는다.

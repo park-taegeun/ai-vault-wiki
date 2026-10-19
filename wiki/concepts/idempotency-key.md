@@ -1,7 +1,7 @@
 ---
 type: concept
-modified: 2026-10-18
-sources: [_private/raw/velog/졸업작품-기록/2026-06-14-졸업작품-기록34.md, _private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-57.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-64.md]
+modified: 2026-10-19
+sources: [_private/raw/notion/Backend/세션 정리/3주차 - API 명세의 이해와 Annotation 305d8df03cab80d9893cf645c6f4274b.md, _private/raw/velog/졸업작품-기록/2026-06-14-졸업작품-기록34.md, _private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-57.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-64.md]
 tags: [api, 중복방지, 재시도, 임베디드]
 ---
 
@@ -12,6 +12,7 @@ tags: [api, 중복방지, 재시도, 임베디드]
 - [[띵동]] 서버는 ESP32가 발급한 `client_request_id`를 `idempotency_keys` 테이블에 24시간 보관하고, 같은 번호가 오면 이전 응답을 그대로 replay한다 → [[flask]], [[sqlalchemy]]
 - 덕분에 펌웨어 재시도 로직을 "응답 못 받으면 그냥 재시도"로 단순하게 둘 수 있다.
 - 위험은 번호 중복 자체가 아니라, **새 소리를 보냈는데 어제의 판정이 돌아오는 것**이다.
+- **왜 이런 장치가 필요한가 (HTTP 메서드의 멱등성)**: 같은 요청을 여러 번 보내도 결과가 같으면 멱등하다. 리소스를 통째로 덮어쓰는 PUT은 멱등하지만, "age를 1 올려라" 같은 PATCH는 보낼 때마다 결과가 달라진다. 멱등하지 않은 요청이 재전송되면 같은 일이 여러 번 반영되므로, 요청 번호로 "이미 처리한 요청"을 알아보게 한다. → [[rest-api]]
 
 ## 언제 쓰나 (상황 예시)
 - 네트워크가 불안정한 기기가 재시도할 수 있는 요청(알림 트리거 등)을 보낼 때.
@@ -28,5 +29,6 @@ tags: [api, 중복방지, 재시도, 임베디드]
 ## 관련
 - [[flask]] · [[sqlalchemy]] · [[http-timeout]] · [[esp32-s3]] · [[kakaotalk-message-api]] · [[2단계-알림]] · [[띵동]]
 - [[트랜잭션]] — DB 트랜잭션보다 한 층 위에서 중복 반영을 막는 장치
+- [[rest-api]] — PUT과 PATCH의 멱등성 차이
 - 원글: [졸업작품 기록 (34)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D34)
 - 원글: [졸업작품 기록 (64)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-64)

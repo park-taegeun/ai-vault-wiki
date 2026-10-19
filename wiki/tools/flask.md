@@ -1,6 +1,6 @@
 ---
 type: tool
-modified: 2026-10-18
+modified: 2026-10-19
 sources: [_private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-6.md, _private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-7.md, _private/raw/velog/졸업작품-기록/2026-06-14-졸업작품-기록34.md, _private/raw/velog/졸업작품-기록/2026-06-15-졸업작품-기록35.md, _private/raw/velog/졸업작품-기록/2026-07-06-졸업작품-기록-42.md]
 tags: [python, 웹프레임워크, api, wsgi]
 ---
@@ -38,9 +38,11 @@ Python 웹 프레임워크다. WSGI 앱이라 프로덕션에서는 Gunicorn 같
 - **curl 15종 검증**: 인증 401, 필드 누락/잘못된 enum/period 400, 정상 201·200, replay 200, rate limit 429, enrich 404·409, pagination 중복 없음, stats와 DB 직접 카운트 일치. 백엔드를 curl로 다 검증해 둔 덕에 React 연동 때 "백엔드냐 프론트냐"를 고민할 필요가 없었다 → [[react]]
 - **한계**: rate limit이 in-memory `dict`라 Gunicorn 워커 2개로 띄우면 워커마다 따로 돌아 무효화된다. 배포 때 Redis로 바꿀 예정이었다.
 - **macOS 5000 포트 점거**: "주소 이미 사용 중"이 나서 `lsof -i :5000`으로 보니 AirPlay 수신과 Flask 좀비 프로세스가 물고 있었다. `127.0.0.1:5000` 직접 접속은 Flask로 가는데 `localhost:5000`을 proxy로 거치면 AirTunes로 가서 403이 났다. 실마리는 응답 헤더 `Server: AirTunes`였다. 코드가 아니라 OS 설정 문제였다.
+  - Spring Boot 8080 포트에서도 같은 방식(`lsof -i :8080` → `kill -9 PID`)으로 풀었다. → [[spring-boot]]
 - **결정론적 시드 데이터 (기록 42)**: `server/seed.py`로 실제 DB에 5건(초인종 완료 / 노크 완료 / 노크 2차 처리중 / 화재 우회 / 초인종 미발송)을 심었다. `detected_at`을 `now - timedelta(...)`로 잡아 항상 "오늘" 필터에 걸리게 하고, `delete()` 후 `add_all`로 몇 번 돌려도 같은 상태가 되게 했다.
 
 ## 관련
+- [[spring-boot]] · [[rest-api]] — 자바 쪽 백엔드와 API 설계
 - [[nginx-gunicorn]] · [[aws-ec2]] · [[https-tls]] · [[sqlalchemy]] · [[react]] · [[vite]] · [[kakaotalk-message-api]] · [[2단계-알림]] · [[idempotency-key]] · [[single-source-of-truth]] · [[esp32-s3]] · [[띵동]]
 - 원글: [졸업작품 기록 (6)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-6)
 - 원글: [졸업작품 기록 (34)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D34)

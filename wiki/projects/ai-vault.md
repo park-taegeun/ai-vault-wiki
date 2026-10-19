@@ -56,6 +56,7 @@ priority: 보통
 ## 관련
 - [[llm-wiki]] — 구현한 패턴
 - [[nested-agent]] — single writer 병렬 처리
+- [[claude-code]] · [[claude-code-hook]] — 이 위키를 운영하는 하네스와 가드가 쓰는 PreToolUse 훅
 - [[ai-산출물-검증]] — AI가 맡은 일을 실물과 대조하는 원칙
 - [[fault-injection]] · [[test-network-isolation]] — 가드 회귀 테스트, strict mock
 - 공개 사이트: https://park-taegeun.github.io/ai-vault-wiki/

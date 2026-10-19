@@ -66,6 +66,7 @@ wav2vec2류를 쓰지 않은 이유는 성능이 아니라 **해석 가능성**�
 
 ## 관련
 - [[egemaps]] · [[opensmile]] · [[mfcc]] · [[f0-pitch]] · [[korean-emotion-speech-datasets]] · [[gemma-4]] · [[sarcasm-detection]] · [[음향-벡터-프롬프트-주입]] · [[embedding-probing]] · [[회의-음성-어조-분석-연구]]
+- [[eeg-감정-인식]] — 같은 감정 인식을 뇌파로 푼 경우
 - 원글: [LAB 18. 세가지 방식 비교](https://velog.io/@xorms/LAB-18)
 - 원글: [LAB 49. eGeMAPS 88차원, 왜 이 4개 모델로 비교하는가](https://velog.io/@xorms/LAB-49.-eGeMAPS-88%EC%B0%A8%EC%9B%90-%EC%99%9C-%EC%9D%B4-4%EA%B0%9C-%EB%AA%A8%EB%8D%B8%EB%A1%9C-%EB%B9%84%EA%B5%90%ED%95%98%EB%8A%94%EA%B0%80)
 - 원글: [LAB 50. 감정 음성 데이터셋 4모델 비교 - LOSO](https://velog.io/@xorms/LAB-50)

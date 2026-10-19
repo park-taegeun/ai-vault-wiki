@@ -1,7 +1,7 @@
 ---
 type: concept
-modified: 2026-10-18
-sources: [_private/raw/velog/AI-생태계-탐험-로그/2026-03-27-Context7-MCP.md, _private/raw/velog/AI-생태계-탐험-로그/2026-03-30-Notion-MCP.md]
+modified: 2026-10-19
+sources: [_private/raw/velog/AI-생태계-탐험-로그/2026-03-27-Context7-MCP.md, _private/raw/velog/AI-생태계-탐험-로그/2026-03-30-Notion-MCP.md, _private/raw/notion/Vibe Coding/Claude Code/에이전트 개념 사전 3f6d8df03cab813ab699d98ecb701995.md]
 tags: [mcp, claude-code]
 ---
 # MCP (Model Context Protocol)
@@ -13,6 +13,10 @@ Claude 같은 모델이 외부 도구(API, 문서 시스템, DB, 브라우저)�
 - 기존 AI는 텍스트 입력 → 텍스트 출력이었다. MCP를 붙이면 실제 시스템에 접근해 **행동(action)** 한다. 비유: Claude는 두뇌, MCP는 손발.
 - 모델이 외부 시스템을 부르는 행위를 **도구 호출(tool use)** 이라 한다. 정의된 함수를 실행하고, 결과가 다시 모델로 돌아와 답에 반영된다.
 - Claude Code에서는 도구 이름 옆에 `(MCP)` 표시가 뜨면 MCP 경유 호출이다. 표시 없이 Bash 명령이 돌면 MCP를 우회한 것이다.
+- **MCP와 훅: 누가 꺼내 쓰나** (개념 사전 2026-10-11 기준)
+  - MCP는 Claude가 "지금 이 도구가 필요하다"고 판단할 때 꺼내 쓴다. 비유하면 공구함이다.
+  - 훅은 이벤트가 생기면 무조건 실행된다. 그래서 "반드시"가 필요한 동작은 MCP나 `CLAUDE.md`에 맡기지 않고 훅으로 건다.
+  - 둘은 경쟁 관계가 아니다. 훅이 MCP 도구를 부를 수 있어서(핸들러 `mcp_tool`), 정해진 시점에 MCP 도구를 반드시 쓰게 만들 수 있다. → [[claude-code-hook]]
 
 ### transport 두 가지
 | 구분 | stdio | HTTP transport |
@@ -42,6 +46,7 @@ Claude 같은 모델이 외부 도구(API, 문서 시스템, DB, 브라우저)�
 - 에러가 나도 Claude가 원인을 해석하고 우회해 진행하는 "에이전트적 복구"가 여러 실습에서 반복 관찰됐다 (각 도구 페이지 참고).
 
 ## 관련
+- [[claude-code]] · [[claude-code-hook]]
 - [[mcp-scope]]
 - [[mcp-combo]]
 - [[context7-mcp]] · [[github-mcp]] · [[notion-mcp]] · [[playwright-mcp]]

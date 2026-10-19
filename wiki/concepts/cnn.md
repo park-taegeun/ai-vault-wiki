@@ -33,6 +33,7 @@ CNN(합성곱 신경망)은 필터를 2D 입력 위로 훑어 국소 패턴(특�
 
 ## 관련
 - [[mel-spectrogram]] · [[yamnet]] · [[transfer-learning]] · [[띵동]]
+- [[eeg-감정-인식]] — 1D CNN을 빼면 정확도가 75.1%에서 35.9%로 떨어진 절제 실험
 - 원글: [졸업작품 기록(3)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D3)
 - 원글: [졸업작품 기록(4)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D4)
 - 원글: [졸업작품 기록 (12)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D12)

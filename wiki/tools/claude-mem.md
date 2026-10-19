@@ -121,6 +121,7 @@ hook으로 Claude Code의 작업을 자동 기록하고 다음 세션에 그 목
 - 다음 실험 후보: 프롬프트마다 관련 관찰을 붙이는 `CLAUDE_MEM_SEMANTIC_INJECT`
 
 ## 관련
+- [[claude-code]] · [[claude-code-hook]] — 기록에 쓰는 훅의 개념
 - [[memory-mcp]] — 명시적 저장 방식의 비교 대상
 - [[claude-code-setup]] — 같은 "필수 플러그인 5개" 가이드, 이전 편
 - [[mcp-scope]] — user scope MCP가 다른 레포 세션에 섞인 사례

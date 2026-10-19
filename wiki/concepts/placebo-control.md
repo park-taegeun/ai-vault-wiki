@@ -66,6 +66,7 @@ tags: [통제실험, 대조군, placebo, 실험설계]
 
 ## 관련
 - [[sarcasm-detection]] · [[음향-벡터-프롬프트-주입]] · [[표현-수준-융합]] · [[어조-성분-분해]] · [[어조-기여-평가-지표]] · [[어조-모듈-층2]] · [[gemma-4]] · [[reproducibility]] · [[회의-음성-어조-분석-연구]]
+- [[eeg-감정-인식]] — 개선을 정규화 몫과 아키텍처 몫으로 나눠 잰 사례
 - 원글: [LAB 12. 통제 실험](https://velog.io/@xorms/LAB-12.-%ED%86%B5%EC%A0%9C-%EC%8B%A4%ED%97%98)
 - 원글: [LAB 58. 표현 수준 융합 학습 파이프라인, 설계 결정 4가지](https://velog.io/@xorms/LAB-58.-%ED%91%9C%ED%98%84-%EC%88%98%EC%A4%80-%EC%9C%B5%ED%95%A9-%ED%95%99%EC%8A%B5-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EC%84%A4%EA%B3%84-%EA%B2%B0%EC%A0%95-4%EA%B0%80%EC%A7%80)
 - 원글: [LAB 62. 어조 정보의 성분 분해](https://velog.io/@xorms/LAB-62.-%EC%96%B4%EC%A1%B0-%EC%A0%95%EB%B3%B4%EC%9D%98-%EC%84%B1%EB%B6%84-%EB%B6%84%ED%95%B4)

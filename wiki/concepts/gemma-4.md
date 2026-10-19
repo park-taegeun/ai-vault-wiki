@@ -1,7 +1,7 @@
 ---
 type: concept
-modified: 2026-10-18
-sources: [_private/raw/velog/AI_LAB/2026-05-26-LAB-9.-Gemma-4-로컬-셋업.md, _private/raw/velog/AI_LAB/2026-05-26-LAB-10.-Sarcasm-탐지-실험1.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-14.-Gemma-4-음성-파이프라인-설계-1-MFCC-어조-그리고-추상화-레벨의-함정.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-Gemma-4-E4B-it-첫-로드-테스트.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-16.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-17-win3cgck.md, _private/raw/velog/AI_LAB/2026-06-02-LAB-26.-Gemma-4-ASR-파인튜닝-1-도메인-적응-목표-설정과-데이터-준비.md, _private/raw/velog/AI_LAB/2026-06-11-LAB-28.-랩미팅-피드백-가벼운-모델-실험.md, _private/raw/velog/AI_LAB/2026-06-16-LAB-29.md, _private/raw/velog/AI_LAB/2026-06-16-LAB-31.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-35.-파인튜닝-소규모-학습검증.md, _private/raw/velog/AI_LAB/2026-06-23-LAB-38.-오디오-경로-구조-검증.md, _private/raw/velog/AI_LAB/2026-07-28-LAB-57.-표현-수준-융합-설계.md]
+modified: 2026-10-19
+sources: [_private/raw/notion/LAB/랩미팅/0619/스크립트 383d8df03cab80e7a50dcab1e44d0831.md, _private/raw/velog/AI_LAB/2026-05-26-LAB-9.-Gemma-4-로컬-셋업.md, _private/raw/velog/AI_LAB/2026-05-26-LAB-10.-Sarcasm-탐지-실험1.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-14.-Gemma-4-음성-파이프라인-설계-1-MFCC-어조-그리고-추상화-레벨의-함정.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-Gemma-4-E4B-it-첫-로드-테스트.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-16.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-17-win3cgck.md, _private/raw/velog/AI_LAB/2026-06-02-LAB-26.-Gemma-4-ASR-파인튜닝-1-도메인-적응-목표-설정과-데이터-준비.md, _private/raw/velog/AI_LAB/2026-06-11-LAB-28.-랩미팅-피드백-가벼운-모델-실험.md, _private/raw/velog/AI_LAB/2026-06-16-LAB-29.md, _private/raw/velog/AI_LAB/2026-06-16-LAB-31.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-35.-파인튜닝-소규모-학습검증.md, _private/raw/velog/AI_LAB/2026-06-23-LAB-38.-오디오-경로-구조-검증.md, _private/raw/velog/AI_LAB/2026-07-28-LAB-57.-표현-수준-융합-설계.md]
 tags: [gemma-4, llm, multimodal, asr, tokenizer]
 ---
 
@@ -47,6 +47,7 @@ gemma-4-E4B-it
   - LLM은 벡터가 토큰에서 왔는지 오디오에서 왔는지 모른다.
   - 전사는 LLM이 토큰을 하나씩 "지어내는" 결과다.
   - 그래서 오디오 조건이 약하면 [[asr-hallucination]]이 생긴다.
+  - 텍스트 임베딩, boa, 오디오 벡터들, eoa, 텍스트 임베딩이 **하나의 연속 시퀀스**로 self-attention에 들어간다. 한 줄 안의 모든 토큰이 서로를 보며 무엇을 얼마나 가져올지 정하고, 텍스트와 오디오의 통합은 이 연산에서 일어난다. 그 앞의 projection은 오디오 인코더 출력 차원을 LLM 임베딩 차원에 맞추는 작업이다(0619 랩미팅).
 - **구현 주의점**
   - 5.9.0 버전의 `masked_scatter`는 dtype을 맞춰주지 않는다.
   - 프로세서는 wav가 없으면 audio 토큰을 깔지 않는다.

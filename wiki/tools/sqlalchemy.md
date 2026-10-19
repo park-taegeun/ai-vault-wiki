@@ -1,7 +1,7 @@
 ---
 type: tool
-modified: 2026-10-18
-sources: [_private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-6.md, _private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-7.md, _private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-8.md, _private/raw/velog/졸업작품-기록/2026-06-14-졸업작품-기록34.md]
+modified: 2026-10-19
+sources: [_private/raw/notion/Backend/세션 정리/2주차 - SpringBoot의 이해/실습/SpringBoot로 데이터 조회 실습 302d8df03cab80e4b178ce1038e129d7.md, _private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-6.md, _private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-7.md, _private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-8.md, _private/raw/velog/졸업작품-기록/2026-06-14-졸업작품-기록34.md]
 tags: [orm, sqlite, python, flask]
 ---
 
@@ -16,6 +16,7 @@ SELECT * FROM logs WHERE sound_type = '초인종'
 Log.query.filter_by(sound_type='초인종').all()
 ```
 - SQLite와 함께 쓰면 별도 DB 서버 없이 파일 하나(예: `logs.db`)로 동작한다.
+- 자바 쪽 대응은 [[spring-data-jpa]]다. SQLAlchemy가 모델 클래스에 `query.filter_by(...)`를 직접 호출한다면, JPA는 `JpaRepository<엔티티, PK타입>`을 상속한 인터페이스만 만들면 `findAll()` 같은 조회 메서드가 생긴다.
 
 | | CSV/JSON 파일 | SQLite |
 |---|---|---|
@@ -40,6 +41,6 @@ Log.query.filter_by(sound_type='초인종').all()
 - `db`는 `extensions.py`에 두고 `create_app`에서 `init_app`한다. 순환 import를 피하는 방법이다 → [[flask]]
 
 ## 관련
-- [[flask]] · [[aws-ec2]] · [[kakaotalk-message-api]] · [[idempotency-key]] · [[2단계-알림]] · [[띵동]]
+- [[flask]] · [[aws-ec2]] · [[kakaotalk-message-api]] · [[idempotency-key]] · [[2단계-알림]] · [[띵동]] · [[spring-data-jpa]]
 - 원글: [졸업작품 기록 (6)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-6)
 - 원글: [졸업작품 기록 (34)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D34)
