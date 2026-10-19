@@ -1,6 +1,6 @@
 ---
 type: concept
-modified: 2026-10-18
+modified: 2026-10-19
 sources: [_private/raw/velog/AI_LAB/2026-05-28-LAB-17-win3cgck.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-19.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-20.md, _private/raw/velog/AI_LAB/2026-06-01-LAB-21.-오디오Zeroth-데이터-변조-실험.md, _private/raw/velog/AI_LAB/2026-06-01-LAB-22.-KconfSpeech-회의-ASR-평가.md, _private/raw/velog/AI_LAB/2026-06-01-LAB-23.-KconfSpeech-다중-세션-평가-환각-트리거-분석.md, _private/raw/velog/AI_LAB/2026-06-01-LAB-25.-짧은-발화-텍스트-프롬포트-억제-실험.md, _private/raw/velog/AI_LAB/2026-06-11-LAB-28.-랩미팅-피드백-가벼운-모델-실험.md, _private/raw/velog/AI_LAB/2026-06-16-LAB-29.md, _private/raw/velog/AI_LAB/2026-06-19-LAB-34.-파인튜닝-데이터-전처리.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-35.-파인튜닝-소규모-학습검증.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-36.-파인튜닝-전체-학습검증.md, _private/raw/velog/AI_LAB/2026-06-23-LAB-37.-파인튜닝-결론.md, _private/raw/velog/AI_LAB/2026-06-23-LAB-38.-오디오-경로-구조-검증.md, _private/raw/velog/AI_LAB/2026-06-29-LAB-39.md, _private/raw/velog/AI_LAB/2026-06-29-LAB-40.-디코딩-파라미터-실험.md]
 tags: [asr, hallucination, gemma-4, audio-gap, prompt, decoding]
 ---
@@ -33,7 +33,7 @@ LLM 기반 ASR([[gemma-4]])이 오디오에 없는 텍스트를 지어내는 현
 - [[kconfspeech]] 9개 세션에서 median CER은 0.17~0.33으로 비슷했다. 반면 mean CER은 0.235~1.020으로 크게 갈렸다.
 - 즉 모델이 전반적으로 나쁜 게 아니다. 특정 발화에서만 환각이 간헐적으로 터진다.
 - 그래서 **median은 실제 성능 지표로, mean과 median의 차이는 환각 지표로** 쓴다.
-- 길이 구간별 환각률(CER>1.0)은 아래와 같았다. 30자 근처가 실질적인 임계값이다.
+- 길이 구간별 환각률(LAB 23)은 아래와 같았다. 30자 근처가 실질적인 임계값이다. LAB 23 원문에는 환각 판정 기준이 적혀 있지 않다. 환각률 기준 CER>1.0은 LAB 28에서 명시된다.
 
 | 길이 | 환각률 |
 |---|---|
@@ -55,7 +55,7 @@ LLM 기반 ASR([[gemma-4]])이 오디오에 없는 텍스트를 지어내는 현
 ### audio-gap: 모델이 오디오를 듣고 있는지 재기 (LAB 34·35)
 - 정의: audio-gap = CER(무음 오디오) − CER(정상 오디오)
 - 오디오를 실제로 듣는 모델이라면 무음을 넣었을 때 CER이 크게 오른다. 반대로 gap이 0이거나 음수면 오디오를 무시하고 있다는 뜻이다.
-- base 모델(E4B NF4, 학습 때 보지 않은 화자 828명으로 구성한 test set)에서는 다음 값이 나왔다.
+- base 모델(E4B NF4, 학습 때 보지 않은 2세션의 발화 828개(S000010 464 + S000017 364)로 구성한 test set)에서는 다음 값이 나왔다.
   - 30자 이하 짧은 발화: gap −0.1160
   - 그보다 긴 발화: gap +0.6549
   - 짧은 발화 중 정답보다 1.5배 넘게 길게 출력한 과생성 비율: 35.1%

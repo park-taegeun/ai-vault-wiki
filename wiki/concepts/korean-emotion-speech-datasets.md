@@ -1,6 +1,6 @@
 ---
 type: concept
-modified: 2026-10-18
+modified: 2026-10-19
 sources: [_private/raw/velog/AI_LAB/2026-07-06-LAB-46.-한국어-감정-음성-데이터셋-선정기.md, _private/raw/velog/AI_LAB/2026-07-07-LAB-47.md, _private/raw/velog/AI_LAB/2026-07-08-LAB-50.md, _private/raw/velog/AI_LAB/2026-07-29-LAB-58.-표현-수준-융합-학습-파이프라인-설계-결정-4가지.md, _private/raw/velog/AI_LAB/2026-07-31-LAB-60.-표현수준-융합-본학습.md, _private/raw/velog/AI_LAB/2026-08-06-LAB-61.-LLM-융합-실험.md, _private/raw/velog/AI_LAB/2026-08-10-LAB-64.-발화-개별-편차의-정체.md, _private/raw/velog/AI_LAB/2026-08-13-LAB-65.-0812-랩미팅-피드백.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md, _private/raw/velog/AI_LAB/2026-08-26-LAB-70.-발화-개별-성분의-마이너스의-출처.md]
 tags: [dataset, aihub, etri, emotion, 한국어]
 ---
@@ -53,7 +53,10 @@ tags: [dataset, aihub, etri, emotion, 한국어]
   - 라벨 일치도(κ)가 공개되어 있지 않다.
 
 > [!warning] 모순
-> LAB 46·58은 감정 라벨을 "15종", LAB 47·50은 "16종"이라고 쓴다. 대분류 15종에 NEUTRAL을 더한 것으로 보이지만 확인이 필요하다. 성우 발화 수도 LAB 47 안에서 151,683(규모 요약)과 151,680(8명 × 18,960)으로 다르게 적혀 있다.
+> LAB 46·58은 감정 라벨을 "15종", LAB 47·50은 "16종"이라고 쓴다. 대분류 15종에 NEUTRAL을 더한 것으로 보이지만 확인이 필요하다.
+
+> [!note] 정정
+> 성우 발화 수는 151,683이다(LAB 47 규모 요약: "8인 × 각 약 18,960문장 = 총 151,683 발화"). 같은 글의 다른 줄에는 "총 151,680 발화"라고 적혀 있다. 이 값은 '약 18,960'을 8로 그대로 곱한 어림값이라 규모 요약을 따랐다 (정정).
 
 - **실험에 쓴 부분집합**
   - 4모델 비교(LAB 50)에는 균형 서브샘플 17,497개를 썼다. → [[speech-emotion-recognition]]

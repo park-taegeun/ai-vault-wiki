@@ -1,6 +1,6 @@
 ---
 type: concept
-modified: 2026-10-18
+modified: 2026-10-19
 sources: [_private/raw/velog/졸업작품-기록/2026-05-16-졸업작품-기록-33.md, _private/raw/velog/졸업작품-기록/2026-06-15-졸업작품-기록35.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-37.md, _private/raw/velog/졸업작품-기록/2026-06-29-졸업작품-기록-38.md]
 tags: [git, 브랜치전략, pr]
 ---
@@ -25,8 +25,7 @@ main에서 feature 브랜치를 따서 작업하고 PR → 리뷰 → 머지 →
 - squash 머지는 remote에 새 해시를 만든다. "로컬 = remote"라는 가정은 웹 머지라는 이벤트로 깨진다 → [[single-source-of-truth]]
 - PR 브랜치에만 있는 파일을 로컬 main에서 실행하면 `No module named ...`가 난다. 머지 후 pull해야 생긴다 → [[keras-savedmodel]]
 
-> [!warning] 모순
-> 기록 35는 PR #3을 "두 번째 Squash PR 사이클"이라 하고, 기록 37은 PR #1~#4를 나열하면서 PR #4를 "코드 PR 3번째 사이클"이라고 한다. 사이클 번호를 세는 기준 확인 필요.
+- **Squash PR 사이클 번호는 PR #2부터 센다**: 기록 35는 PR #3을 "두 번째 Squash PR 사이클"(첫 번째는 PR #2)이라 했고, 기록 37은 PR #4를 "코드 PR 3번째 사이클"이라 했다. 두 기록의 기준은 같다(PR #2 = 1, #3 = 2, #4 = 3). 기록 37이 괄호 안에 PR #1까지 함께 나열해서 어긋나 보일 뿐이다. PR #1을 세지 않는 이유는 (이유 미기록).
 
 ## 관련
 - [[monorepo]] · [[single-source-of-truth]] · [[react]] · [[keras-savedmodel]] · [[github-mcp]] · [[띵동]]
