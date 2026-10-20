@@ -1,7 +1,7 @@
 ---
 type: concept
-modified: 2026-10-19
-sources: [_private/raw/notion/Vibe Coding/Claude Code/에이전트 개념 사전 3f6d8df03cab813ab699d98ecb701995.md, _private/raw/notion/Vibe Coding/Terminology 311d8df03cab80c0bc0dd5799dc46b31.md]
+modified: 2026-10-20
+sources: [_private/raw/notion/Vibe Coding/Claude Code/에이전트 개념 사전 3f6d8df03cab813ab699d98ecb701995.md, _private/raw/notion/Vibe Coding/Terminology 311d8df03cab80c0bc0dd5799dc46b31.md, _private/raw/velog/AI-생태계-탐험-로그/2026-10-20-LLM-Wiki-운영편-2-정규식이-놓친-비밀번호-숫자는-맞는데-남은-1편-부탁을-강제로-바꾸는-운영.md]
 tags: [claude-code, hook, harness, 보안]
 ---
 
@@ -93,6 +93,7 @@ tags: [claude-code, hook, harness, 보안]
 훅 실습 기록은 각 도구 페이지에 있어서 여기서는 링크만 둔다.
 - [[claude-code-setup]]: 비밀값 차단 PreToolUse 훅, 훅 + `permissions.deny` 이중 방어, 훅은 세션 시작 때 로드되므로 재시작 필요
 - [[ai-vault]]: 파일을 쓰는 순간의 가드 훅. 훅은 도구 호출만 보므로 스크립트로 직접 쓴 파일은 검사 밖이었던 사례
+- [[ai-vault]] (2026-10-20): Write/Edit 매처만 걸어 둔 가드는 Bash 도구의 `sed -i`·리다이렉트·`tee` 쓰기를 못 본다. Bash 호출의 명령 문자열도 검사해, 보호 구역을 대상으로 한 셸 쓰기를 exit 2로 막았다(차단 8개·허용 6개 명령으로 시험 후 적용).
 - [[ruflo]]: 설치 메시지의 "훅 7종"과 실제 구성의 차이, pre-bash 차단 훅과 route 훅
 - [[claude-mem]]: 훅으로 작업을 자동 기록하는 플러그인
 
