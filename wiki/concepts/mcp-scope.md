@@ -81,6 +81,7 @@ Claude Code 훅도 저장 위치가 적용 범위를 정한다. ([[ruflo]])
 - 원글: [Context7 + GitHub MCP 콤보](https://velog.io/@xorms/Context7-GitHub-MCP-%EC%BD%A4%EB%B3%B4)
 - 원글: [Playwright MCP Server](https://velog.io/@xorms/Playwright-MCP-Server)
 - 원글: [Claude Code로 Scrapling MCP 연결](https://velog.io/@xorms/Claude-Code%EB%A1%9C-Scrapling-MCP-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0-Cloudflare-%EB%B4%87-%EA%B2%80%EC%82%AC%EB%A5%BC-%ED%86%B5%EA%B3%BC%ED%95%98%EB%8A%94-%EC%8A%A4%ED%81%AC%EB%9E%98%ED%8D%BC%EB%A5%BC-AI%EC%97%90%EA%B2%8C-%EB%B6%99%EC%9D%B4%EB%8A%94-%EB%B2%95)
+- [[ai-vault]] — 볼트 폴더를 옮기자 project scope 스킬이 옛 경로에 묶여 사라진 사례
 - 원글: [Claude Code로 hwp-mcp 연결하기](https://velog.io/@xorms/Claude-Code%EB%A1%9C-hwp-mcp-%EC%97%B0%EA%B2%B0%ED%95%98%EA%B8%B0)
 - 원글: [Claude Desktop에 Obsidian 볼트 연결](https://velog.io/@xorms/Claude-Desktop%EC%97%90-Obsidian-%EB%B3%BC%ED%8A%B8-%EC%97%B0%EA%B2%B0)
 - 원글: [Claude Code에 Ruflo 붙여보기](https://velog.io/@xorms/Claude-Code%EC%97%90-Ruflo-%EB%B6%99%EC%97%AC%EB%B3%B4%EA%B8%B0)
