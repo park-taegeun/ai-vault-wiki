@@ -8,7 +8,8 @@ Claude는 모순·중복 판단 같은 '의미'가 필요한 일만 맡는다.
 사용법 (볼트 루트에서):
   python3 .tools/wiki_check.py lint            # 정비 리포트
   python3 .tools/wiki_check.py status          # 프로젝트·취업 대시보드
-  python3 .tools/wiki_check.py pending         # 아직 넣지 않은 원본 목록
+  python3 .tools/wiki_check.py pending         # 아직 넣지 않은 원본 목록 (본문 없는 목차 파일은 제외)
+  python3 .tools/wiki_check.py pending --all   # 제외된 목차 파일 목록까지
   python3 .tools/wiki_check.py staged          # 공개 레포 커밋 게이트 (pre-commit)
   python3 .tools/wiki_check.py staged-private  # 비공개 레포 커밋 게이트 (_private pre-commit)
   python3 .tools/wiki_check.py public-gate     # 배포 직전 공개 파일 전수 검사 (GitHub Actions)
@@ -253,9 +254,40 @@ def print_readiness():
     print()
 
 
-def pending():
+# 본문 없이 제목·링크·URL·구분선만 있는 줄 (노션 목차 페이지, 빈 주차 페이지)
+_TOC_LINE_RE = re.compile(
+    r"^\s*(?:"
+    r"#{1,6}\s.*"                                       # 제목
+    r"|(?:[-*+]|\d+\.)?\s*(?:\[[^\]]*\]\([^)]*\)\s*)+"   # [이름](주소) 링크만 있는 줄
+    r"|(?:[-*+]|\d+\.)?\s*<?https?://\S+>?"              # 주소만 있는 줄
+    r"|[-*_]{3,}"                                       # 구분선
+    r"|[-*+]"                                           # 빈 목록 기호
+    r")?\s*$"
+)
+
+
+def is_toc_only(f):
+    """본문 없이 제목·링크만 있는 .md 원본인지 (패치 6.9). 이런 파일은 위키에 넣을 내용이 없다."""
+    if not f.endswith(".md"):
+        return False
+    text = read(f)
+    if text.startswith("---"):
+        end = text.find("\n---", 3)
+        if end != -1:
+            text = text[end + 4:]
+    return all(_TOC_LINE_RE.match(line) for line in text.splitlines())
+
+
+def pending_split():
+    """(넣어야 할 원본, 본문 없는 목차 원본) — 둘 다 아직 log에 없는 것만."""
     log = read(LOG) if os.path.exists(os.path.join(ROOT, LOG)) else ""
-    return [f for f in files_under(RAW) if os.path.relpath(f, PRIV) not in log and f not in log]
+    todo = [f for f in files_under(RAW) if os.path.relpath(f, PRIV) not in log and f not in log]
+    toc = [f for f in todo if is_toc_only(f)]
+    return [f for f in todo if f not in toc], toc
+
+
+def pending():
+    return pending_split()[0]
 
 
 def status_rows(v):
@@ -391,7 +423,8 @@ def main():
     if mode == "public-gate":
         sys.exit(check_public_gate())
     if mode == "pending":
-        p = pending()
+        p, toc = pending_split()
+        show_toc = "--all" in sys.argv[2:]
         by_dir = defaultdict(list)
         for f in p:
             by_dir[os.path.dirname(f)].append(f)
@@ -400,6 +433,13 @@ def main():
             print(f"## {d}/ ({len(by_dir[d])}개)")
             for f in by_dir[d]:
                 print(f"- {f}")
+        if toc:
+            print(f"\n## 제외: 본문 없는 목차 파일 {len(toc)}개 (제목·링크만 있음 — 위키·log에 적을 필요 없음)")
+            if show_toc:
+                for f in toc:
+                    print(f"- {f}")
+            else:
+                print("- 목록 보기: python3 .tools/wiki_check.py pending --all")
         return
     v = Vault()
     if mode == "status":
