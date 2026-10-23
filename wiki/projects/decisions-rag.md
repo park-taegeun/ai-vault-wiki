@@ -3,7 +3,7 @@ type: project
 modified: 2026-10-23
 sources: [_private/raw/clips/decisions-rag/2026-10-23-README.md, _private/raw/clips/decisions-rag/2026-10-23-PREREG.md, _private/raw/clips/decisions-rag/2026-10-23-PREREG_v2.md, _private/raw/clips/decisions-rag/2026-10-23-results_v1.md, _private/raw/clips/decisions-rag/2026-10-23-results_v2.md, _private/raw/clips/decisions-rag/2026-10-23-mcp_demo.md]
 tags: [rag, mcp, 평가, 사전등록, held-out, 띵동, 개발도구]
-status: 진행중
+status: 완료
 priority: 보통
 ---
 
