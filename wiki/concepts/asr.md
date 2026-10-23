@@ -1,7 +1,7 @@
 ---
 type: concept
-modified: 2026-10-18
-sources: [_private/raw/velog/AI_LAB/2026-05-28-LAB-14.-Gemma-4-음성-파이프라인-설계-1-MFCC-어조-그리고-추상화-레벨의-함정.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-16.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-17-win3cgck.md, _private/raw/velog/AI_LAB/2026-06-01-LAB-21.-오디오Zeroth-데이터-변조-실험.md, _private/raw/velog/졸업작품-기록/2026-04-29-졸업작품-기록-17.md, _private/raw/velog/졸업작품-기록/2026-04-30-졸업작품-기록-20.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-53.md, _private/raw/velog/졸업작품-기록/2026-09-10-졸업작품-기록-60-yluffzjs.md, _private/raw/velog/졸업작품-기록/2026-09-10-졸업작품-기록-61.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-69.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-71.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-84.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-86.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-88.md, _private/raw/velog/졸업작품-기록/2026-10-12-졸업작품-기록-90.md]
+modified: 2026-10-23
+sources: [_private/raw/velog/AI_LAB/2026-05-28-LAB-14.-Gemma-4-음성-파이프라인-설계-1-MFCC-어조-그리고-추상화-레벨의-함정.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-16.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-17-win3cgck.md, _private/raw/velog/AI_LAB/2026-06-01-LAB-21.-오디오Zeroth-데이터-변조-실험.md, _private/raw/velog/졸업작품-기록/2026-04-29-졸업작품-기록-17.md, _private/raw/velog/졸업작품-기록/2026-04-30-졸업작품-기록-20.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-53.md, _private/raw/velog/졸업작품-기록/2026-09-10-졸업작품-기록-60-yluffzjs.md, _private/raw/velog/졸업작품-기록/2026-09-10-졸업작품-기록-61.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-69.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-71.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-84.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-86.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-88.md, _private/raw/velog/졸업작품-기록/2026-10-12-졸업작품-기록-90.md, _private/raw/velog/졸업작품-기록/2026-10-21-졸업작품-기록-95.md]
 tags: [asr, wer, cer, zeroth-korean, perturbation, gemma-4]
 ---
 
@@ -91,6 +91,18 @@ ASR(자동 음성 인식)은 음성을 텍스트로 바꾸는 작업이다. 이 
   - 실제 기기 녹음 14개 분석: 미리 정한 기준(잡음 바닥 하위 20%, 쉼 600ms)은 실제 분포와 안 맞았다(바닥 5% 수준, 실제 쉼 160~360ms). 분포를 먼저 보고 기준을 정해야 했다.
   - 뒤 구절 결과는 정확 7, 잘못 알아들음 4, 빠짐 1, 빈 결과 2였다. 인식 쪽 탈락 후보 1건을 쉼에서 나눠 따로 인식시키니 글자 오류율이 0.571 → 0.143으로 회복됐다. 나눈 요청이 2.1~2.3초인데 제한 시간이 3초라 여유가 작아 이 방식은 만들지 않았다.
   - 모든 관찰은 집, 한 사람, 한 세션, 조건당 3번 안팎이다.
+- **쉼 자리에서 나눠 인식하면 나아질까 (기록 95, 2026-10-21)**: 저장된 녹음 12개(쉼 6 · 한 숨 6)를 소리 에너지 골짜기에서 둘로 나눠 동시에 인식하고 이어 붙였다. 대조군은 같은 녹음 통째 재인식. 실제로 나뉜 것은 8개(쉼 6, 한 숨 2), 호출 24회, 실패·재시도 0.
+
+  | 집단 | 통째 | 분할 |
+  |---|---|---|
+  | 쉼 녹음 6 | 정확 2 | 정확 4 (나아짐 3 · 같음 3 · 나빠짐 0) |
+  | 한 숨 녹음 6 | 정확 5 | 정확 3 (나눈 2개 모두 나빠짐) |
+  | 전체 12 | 정확 7 | 정확 7 |
+
+  - **합계 0은 "효과 없음"이 아니라 상쇄였다.** 집단을 갈라 보고서야 보였다. 한 숨 녹음이 나빠진 모습은 두 건 관찰됐다(문장 안 짧은 틈도 골짜기 기준을 넘음, 경계에서 단어가 떨어져 나감). 원인 규명은 아니다.
+  - "통째와 분할 중 더 긴 쪽을 고르면" 정확 8~9가 나오지만, 같은 12개를 보고 정한 사후 규칙이라 근거가 아니다. 과적합 예로만 남겼다.
+  - 이전 결과와 통째 재호출의 뒤 구절 분류는 8개 모두 일치했다(녹음당 재호출 1회). 서버 쪽 인식 구간만 잰 시간은 조각 쌍 594.7~826.7ms, 통째 634.0~846.2ms였다.
+  - 결정: 서버를 바꾸지 않았다. 알려진 한계로 두고 시연 대사를 2초 안쪽으로 짧게 유지한다. 쉼 가설은 이번 실험으로 확정도 반박도 되지 않았다. 녹음 12개 · 화자 1명 · 한 세션 · 집 · 대사 한 문장 조건이다.
 
 ## 관련
 - [[gemma-4]] · [[asr-hallucination]] · [[kconfspeech]] · [[asr-fine-tuning]] · [[quantization]] · [[audio-tower]] · [[회의-음성-어조-분석-연구]]
@@ -99,6 +111,7 @@ ASR(자동 음성 인식)은 음성을 텍스트로 바꾸는 작업이다. 이 
 - 원글: [졸업작품 기록 (61)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-61)
 - 원글: [졸업작품 기록 (88)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-88)
 - 원글: [졸업작품 기록 (90)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-90)
+- 원글: [졸업작품 기록 (95)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-95)
 - 원글: [LAB 14. Gemma 4 음성 파이프라인 설계 (1)](https://velog.io/@xorms/LAB-14.-Gemma-4-%EC%9D%8C%EC%84%B1-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EC%84%A4%EA%B3%84-1-MFCC-%EC%96%B4%EC%A1%B0-%EA%B7%B8%EB%A6%AC%EA%B3%A0-%EC%B6%94%EC%83%81%ED%99%94-%EB%A0%88%EB%B2%A8%EC%9D%98-%ED%95%A8%EC%A0%95)
 - 원글: [LAB 16. ARS 동작 테스트 - 오디오 타워 양자화 제외](https://velog.io/@xorms/LAB-16)
 - 원글: [LAB 17. 동작 확인에서 정량 측정으로 - 한국어 ASR WER/CER](https://velog.io/@xorms/LAB-17-win3cgck)

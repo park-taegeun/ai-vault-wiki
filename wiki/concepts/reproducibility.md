@@ -1,7 +1,7 @@
 ---
 type: concept
-modified: 2026-10-19
-sources: [_private/raw/notion/LAB/랩미팅/0901 3c0d8df03cab807d9826c3fdda215764.md, _private/raw/notion/LAB/랩미팅/1008 3dfd8df03cab80ffa089c02e18d18287.md, _private/raw/velog/AI_LAB/2026-05-20-LAB-03.-기초를-다지자2.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-19.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-20.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-36.-파인튜닝-전체-학습검증.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-73.-채점-축-교체-정답률에서-정보량으로.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-74.-감정가-불일치-축-구간-나누기.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-79.-사라진-학습-데이터를-똑같이-되살릴-수-있는가.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-80.-학습을-다시-하면-같은-숫자가-나오는가.md, _private/raw/velog/AI_LAB/2026-10-16-LAB-89.-실전-모듈이-학습-때와-똑같이-계산하는가.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-36.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-40.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-50.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-65-1bdolylo.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-67.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-73.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-78.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-83.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-87.md, _private/raw/velog/졸업작품-기록/2026-10-18-졸업작품-기록-94.md]
+modified: 2026-10-23
+sources: [_private/raw/notion/LAB/랩미팅/0901 3c0d8df03cab807d9826c3fdda215764.md, _private/raw/notion/LAB/랩미팅/1008 3dfd8df03cab80ffa089c02e18d18287.md, _private/raw/velog/AI_LAB/2026-05-20-LAB-03.-기초를-다지자2.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-19.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-20.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-36.-파인튜닝-전체-학습검증.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-73.-채점-축-교체-정답률에서-정보량으로.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-74.-감정가-불일치-축-구간-나누기.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-79.-사라진-학습-데이터를-똑같이-되살릴-수-있는가.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-80.-학습을-다시-하면-같은-숫자가-나오는가.md, _private/raw/velog/AI_LAB/2026-10-16-LAB-89.-실전-모듈이-학습-때와-똑같이-계산하는가.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-36.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-40.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-50.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-65-1bdolylo.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-67.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-73.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-78.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-83.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-87.md, _private/raw/velog/졸업작품-기록/2026-10-18-졸업작품-기록-94.md, _private/raw/velog/졸업작품-기록/2026-10-21-졸업작품-기록-95.md]
 tags: [재현성, 시드, 실험설계, 학습-서빙-불일치]
 ---
 
@@ -95,13 +95,19 @@ tags: [재현성, 시드, 실험설계, 학습-서빙-불일치]
 - **오프라인 분석이 기기 판정을 재현하는가 (기록 87)**: 녹음 파일 약 490개를 기기 코드와 같은 계산으로 다시 돌리자 기기 쪽 계산과 완전히 일치했다. 이 확인 뒤에야 오프라인 분석으로 자동 감지 기준을 정할 수 있었다 → [[onset-detection]]
 - **비교 도구가 실물과 같은 답을 내는가 (기록 94)**: 녹음을 기존 모델로 재채점한 결과와 실시간 판정이 36건 중 불일치 0이었다. 조건 하나를 일부러 뒤집으면 불일치가 잡히고 되돌리면 0이었다. 새 모델 실시간 구간과 오프라인 재채점도 9건 중 불일치 0이었다(이 9건 범위 안에서만).
 - **빌드 결정성 (기록 94)**: 빌드 산출물 해시로 "안 바뀌었음"을 증명하기 전에, 고치기 전 코드를 두 번 빌드해 결과가 매번 같은지부터 확인했다.
+- **"재현되게 만들었다"는 주석을 실측으로 (기록 95)**: 증강 코드는 파일마다 고정 씨앗으로 난수를 만든다고 주석에 적혀 있었지만, 다시 돌려 잰 기록은 없었다. 같은 입력·같은 분할표로 증강을 한 번 더 돌려 파일 전체 해시를 비교했다.
+  - 비교 함수부터 대조군 세 개로 확인했다: 같은 파일 → 같음, 다른 파일 → 다름, 1비트 뒤집은 사본 → 다름 → [[fault-injection]]
+  - 파일 목록 차이 0, **16,738개 전부 바이트 동일**(초인종 1,052 · 노크 2,066 · 화재 2,980 · 기타 10,640). 최종 학습 세트로 복사된 증강본도 16,738개 전부 같았다. 42.45초.
+  - 범위: 같은 기계 · 같은 라이브러리 버전 · 증강 단계만. 다른 환경, 전처리 · 분할 · 학습 단계의 재현은 확인하지 않았다.
+  - 버전 수집 중 라이브러리 캐시 폴더의 수정 시각이 한 번 바뀌었다(안의 파일은 그대로). 다음부터 캐시 경로를 산출 폴더로 지정한다.
 
 ## 관련
 - [[어조-성분-분해]] · [[placebo-control]] · [[어조-모듈]] · [[어조-모듈-층2]] · [[어조-기여-평가-지표]] · [[asr-hallucination]] · [[asr-fine-tuning]] · [[pandas]] · [[gemma-4]] · [[korean-emotion-speech-datasets]] · [[회의-음성-어조-분석-연구]]
-- [[띵동]] · [[data-leakage]] · [[fault-injection]] · [[대조-가드]] · [[platformio]] · [[현관-소리-학습-데이터]] · [[onset-detection]] · [[모델-교체-판단]] · [[구현-전-사전-테스트]] · [[마이크-튐-판별]] · [[out-of-distribution]] · [[ai-산출물-검증]]
+- [[띵동]] · [[data-leakage]] · [[fault-injection]] · [[대조-가드]] · [[platformio]] · [[현관-소리-학습-데이터]] · [[onset-detection]] · [[모델-교체-판단]] · [[구현-전-사전-테스트]] · [[마이크-튐-판별]] · [[out-of-distribution]] · [[ai-산출물-검증]] · [[미결-실재-확인]]
 - 원글: [졸업작품 기록 (65)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-65-1bdolylo)
 - 원글: [졸업작품 기록 (67)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-67)
 - 원글: [졸업작품 기록 (94)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-94)
+- 원글: [졸업작품 기록 (95)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-95)
 - 원글: [LAB 79. 사라진 학습 데이터를 똑같이 되살릴 수 있는가](https://velog.io/@xorms/LAB-79.-%EC%82%AC%EB%9D%BC%EC%A7%84-%ED%95%99%EC%8A%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%98%91%EA%B0%99%EC%9D%B4-%EB%90%98%EC%82%B4%EB%A6%B4-%EC%88%98-%EC%9E%88%EB%8A%94%EA%B0%80)
 - 원글: [LAB 80. 학습을 다시 하면 같은 숫자가 나오는가](https://velog.io/@xorms/LAB-80.-%ED%95%99%EC%8A%B5%EC%9D%84-%EB%8B%A4%EC%8B%9C-%ED%95%98%EB%A9%B4-%EA%B0%99%EC%9D%80-%EC%88%AB%EC%9E%90%EA%B0%80-%EB%82%98%EC%98%A4%EB%8A%94%EA%B0%80)
 - 원글: [LAB 89. 실전 모듈이 학습 때와 똑같이 계산하는가](https://velog.io/@xorms/LAB-89.-%EC%8B%A4%EC%A0%84-%EB%AA%A8%EB%93%88%EC%9D%B4-%ED%95%99%EC%8A%B5-%EB%95%8C%EC%99%80-%EB%98%91%EA%B0%99%EC%9D%B4-%EA%B3%84%EC%82%B0%ED%95%98%EB%8A%94%EA%B0%80)
