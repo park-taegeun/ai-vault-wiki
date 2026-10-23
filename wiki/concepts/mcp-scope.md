@@ -1,6 +1,6 @@
 ---
 type: concept
-modified: 2026-10-19
+modified: 2026-10-23
 sources: [_private/raw/velog/AI-생태계-탐험-로그/2026-03-27-Context7-GitHub-MCP-콤보.md, _private/raw/velog/AI-생태계-탐험-로그/2026-10-14-Claude-Code에-claude-mem-붙여보기.md, _private/raw/velog/AI-생태계-탐험-로그/2026-03-30-Playwright-MCP-Server.md, _private/raw/velog/AI-생태계-탐험-로그/2026-10-11-Claude-Code로-Scrapling-MCP-연결하기-Cloudflare-봇-검사를-통과하는-스크래퍼를-AI에게-붙이는-법.md, _private/raw/velog/AI-생태계-탐험-로그/2026-10-12-Claude-Code로-hwp-mcp-연결하기.md, _private/raw/velog/AI-생태계-탐험-로그/2026-08-02-Claude-Desktop에-Obsidian-볼트-연결.md, _private/raw/velog/AI-생태계-탐험-로그/2026-10-11-Claude-Code에-Ruflo-붙여보기.md]
 tags: [mcp, claude-code, 설정]
 ---
@@ -58,7 +58,7 @@ Claude Code 훅도 저장 위치가 적용 범위를 정한다. ([[ruflo]])
   claude mcp add context7 --scope user -- npx -y @upstash/context7-mcp@latest
   claude mcp add github --scope user -e GITHUB_PERSONAL_ACCESS_TOKEN=<REDACTED> -- npx -y @modelcontextprotocol/server-github
   ```
-- **user scope가 다른 레포에 끼어든 사례**: 띵동용으로 만든 decisions-rag MCP를 user scope로 등록해 두었더니, 상관없는 ai-news-monitor 세션에도 그 안내문이 들어왔다. 그래서 Claude가 엉뚱한 레포 파일을 근거 후보로 언급했다. 특정 프로젝트에 묶인 MCP는 local로 등록해야 한다. ([[claude-mem]] 실험 중 발견)
+- **user scope가 다른 레포에 끼어든 사례**: 띵동용으로 만든 [[decisions-rag]] MCP를 user scope로 등록해 두었더니, 상관없는 ai-news-monitor 세션에도 그 안내문이 들어왔다. 그래서 Claude가 엉뚱한 레포 파일을 근거 후보로 언급했다. 특정 프로젝트에 묶인 MCP는 local로 등록해야 한다. ([[claude-mem]] 실험 중 발견)
 - user scope로 등록한 것은 `claude mcp remove <이름> --scope user`처럼 scope를 맞춰 지운다 ([[playwright-mcp]] 재등록 때 사용).
 
 - venv 안의 실행 파일은 절대 경로로 등록한다. `"$(which scrapling-mcp)"`는 입력 순간 경로가 고정되므로 venv를 켠 상태에서 등록해야 한다. ([[scrapling-mcp]])
@@ -74,6 +74,7 @@ Claude Code 훅도 저장 위치가 적용 범위를 정한다. ([[ruflo]])
 - [[ruflo]]
 - [[claude-code-setup]]
 - [[claude-mem]]
+- [[decisions-rag]] — user scope로 등록해 상관없는 세션에 끼어든 MCP
 - [[firecrawl-mcp]]
 - [[photocraft-mcp]]
 - [[slack-mcp]]

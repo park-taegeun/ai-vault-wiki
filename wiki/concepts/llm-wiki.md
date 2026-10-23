@@ -1,6 +1,6 @@
 ---
 type: concept
-modified: 2026-10-20
+modified: 2026-10-23
 sources: [_private/raw/velog/AI-생태계-탐험-로그/2026-10-18-카파시의-LLM-Wiki를-Claude-Code로-직접-구현하기.md, _private/raw/velog/AI-생태계-탐험-로그/2026-10-19-LLM-Wiki-운영편-자동화를-멈춘-이유와-쌓을수록-똑똑해진다를-숫자로-증명하기.md, _private/raw/velog/AI-생태계-탐험-로그/2026-10-20-LLM-Wiki-운영편-2-정규식이-놓친-비밀번호-숫자는-맞는데-남은-1편-부탁을-강제로-바꾸는-운영.md]
 tags: [llm-wiki, knowledge-base, rag, claude-code, obsidian]
 ---
@@ -32,6 +32,7 @@ Andrej Karpathy가 제안한 패턴. LLM을 "사서"로 두는 개인 위키로,
   | 결과물 | 매번 사라지는 답변 | 남아서 쌓이는 마크다운 페이지 |
   | 모순 처리 | 조각끼리 충돌해도 모름 | 넣을 때 기존 페이지와 대조해 표시 |
   | 사람이 보기 | 벡터DB라 들여다보기 어려움 | Obsidian 그래프·웹사이트로 탐색 |
+  직접 만든 RAG 사례: [[decisions-rag]]
 
 ### 결정과 이유
 - **대량 넣기는 single writer(단일 작성자)**
