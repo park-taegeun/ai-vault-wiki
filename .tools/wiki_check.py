@@ -379,6 +379,10 @@ def check_staged():
 def check_staged_private():
     cwd = os.path.join(ROOT, PRIV)
     problems = []
+    # 원본은 추가만: 수정(M)·삭제(D)·형식 변경(T)을 막는다. --no-renames로 이동은 삭제+추가로 보이게 한다
+    for f in git(cwd, "diff", "--cached", "--name-only", "--no-renames", "--diff-filter=DMT", "-z").split("\0"):
+        if f.startswith("raw/"):
+            problems.append(f"원본은 추가만 가능 (수정·삭제·이동): {f}")
     for f in staged_files(cwd):
         if f.startswith("drafts/") or re.search(r"(^|/)\.env", f):
             problems.append(f"올리면 안 되는 파일: {f}")
@@ -388,7 +392,8 @@ def check_staged_private():
             problems.append(f"API 키·토큰 의심 ({', '.join(labels)}): {f}")
     return report(problems,
                   "→ 아직 살아 있는 키라면 먼저 해당 서비스에서 폐기(rotate)하세요.\n"
-                  "→ 이미 폐기된 키라는 걸 직접 확인했다면: git commit --no-verify")
+                  "→ 이미 폐기된 키라는 걸 직접 확인했다면: git commit --no-verify\n"
+                  "→ 원본(raw/)은 고치지 말고 새 파일로 추가하세요. 사람이 직접 정리한 경우에만: git commit --no-verify")
 
 
 def check_public_gate():

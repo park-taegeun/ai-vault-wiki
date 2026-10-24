@@ -16,6 +16,17 @@
       "Edit(./.tools/**)"
     ]
   },
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false,
+    "autoAllowBashIfSandboxed": false,
+    "filesystem": {
+      "denyWrite": ["./.claude", "./.githooks", "./_private/.githooks", "./.tools", "./.github"]
+    },
+    "network": {
+      "allowedDomains": ["v2.velog.io"]
+    }
+  },
   "hooks": {
     "PreToolUse": [
       {
