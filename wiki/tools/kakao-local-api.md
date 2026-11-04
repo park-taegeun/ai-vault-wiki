@@ -1,7 +1,7 @@
 ---
 type: tool
 modified: 2026-10-19
-sources: [_private/raw/notion/프로젝트/2026 관광데이터 활용 공모전/회의 안건/0809 3b7d8df03cab81e5986ec9457256b74f.md, _private/raw/notion/프로젝트/2026 관광데이터 활용 공모전/상세 화면 데이터 확보 현황 (운영시간·이미지) 3b8d8df03cab8186a1c2dd579d271466.md, _private/raw/notion/프로젝트/2026 관광데이터 활용 공모전/양조장 상세 화면 — 디자이너 회신 답변 (8 15) 3bbd8df03cab819fa5a7cccdbab925bb.md, 비공개 원본]
+sources: [_private/raw/notion/프로젝트/2026 관광데이터 활용 공모전/회의 안건/0809 3b7d8df03cab81e5986ec9457256b74f.md, _private/raw/notion/프로젝트/2026 관광데이터 활용 공모전/상세 화면 데이터 확보 현황 (운영시간·이미지) 3b8d8df03cab8186a1c2dd579d271466.md, 비공개 원본]
 tags: [api, 카카오맵, 장소검색, 공공데이터보완]
 ---
 

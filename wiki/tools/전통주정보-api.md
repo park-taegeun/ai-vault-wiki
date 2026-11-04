@@ -1,7 +1,7 @@
 ---
 type: tool
 modified: 2026-10-19
-sources: [_private/raw/notion/프로젝트/2026 관광데이터 활용 공모전/API 분석/전통주정보 3a3d8df03cab81279e3dd66cc62840f7.md, _private/raw/notion/프로젝트/2026 관광데이터 활용 공모전/양조장 상세 화면 — 디자이너 회신 답변 (8 15) 3bbd8df03cab819fa5a7cccdbab925bb.md]
+sources: [_private/raw/notion/프로젝트/2026 관광데이터 활용 공모전/API 분석/전통주정보 3a3d8df03cab81279e3dd66cc62840f7.md, 비공개 원본]
 tags: [공공데이터, odcloud, 전통주, 관광데이터-공모전]
 ---
 
