@@ -1,7 +1,7 @@
 ---
 type: concept
-modified: 2026-10-23
-sources: [_private/raw/notion/LAB/랩미팅/0901 3c0d8df03cab807d9826c3fdda215764.md, _private/raw/notion/LAB/랩미팅/1008 3dfd8df03cab80ffa089c02e18d18287.md, _private/raw/velog/AI_LAB/2026-05-20-LAB-03.-기초를-다지자2.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-19.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-20.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-36.-파인튜닝-전체-학습검증.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-73.-채점-축-교체-정답률에서-정보량으로.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-74.-감정가-불일치-축-구간-나누기.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-79.-사라진-학습-데이터를-똑같이-되살릴-수-있는가.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-80.-학습을-다시-하면-같은-숫자가-나오는가.md, _private/raw/velog/AI_LAB/2026-10-16-LAB-89.-실전-모듈이-학습-때와-똑같이-계산하는가.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-36.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-40.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-50.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-65-1bdolylo.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-67.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-73.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-78.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-83.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-87.md, _private/raw/velog/졸업작품-기록/2026-10-18-졸업작품-기록-94.md, _private/raw/velog/졸업작품-기록/2026-10-21-졸업작품-기록-95.md]
+modified: 2026-11-04
+sources: [_private/raw/velog/AI_LAB/2026-11-03-LAB-90.-다시-학습해-보니.md, _private/raw/notion/LAB/랩미팅/0901 3c0d8df03cab807d9826c3fdda215764.md, _private/raw/notion/LAB/랩미팅/1008 3dfd8df03cab80ffa089c02e18d18287.md, _private/raw/velog/AI_LAB/2026-05-20-LAB-03.-기초를-다지자2.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-19.md, _private/raw/velog/AI_LAB/2026-05-29-LAB-20.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-36.-파인튜닝-전체-학습검증.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-73.-채점-축-교체-정답률에서-정보량으로.md, _private/raw/velog/AI_LAB/2026-09-04-LAB-74.-감정가-불일치-축-구간-나누기.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-79.-사라진-학습-데이터를-똑같이-되살릴-수-있는가.md, _private/raw/velog/AI_LAB/2026-10-06-LAB-80.-학습을-다시-하면-같은-숫자가-나오는가.md, _private/raw/velog/AI_LAB/2026-10-16-LAB-89.-실전-모듈이-학습-때와-똑같이-계산하는가.md, _private/raw/velog/졸업작품-기록/2026-06-23-졸업작품-기록-36.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-40.md, _private/raw/velog/졸업작품-기록/2026-08-01-졸업작품-기록-50.md, _private/raw/velog/졸업작품-기록/2026-08-07-졸업작품-기록-52.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-65-1bdolylo.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-67.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-73.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-78.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-83.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-87.md, _private/raw/velog/졸업작품-기록/2026-10-18-졸업작품-기록-94.md, _private/raw/velog/졸업작품-기록/2026-10-21-졸업작품-기록-95.md]
 tags: [재현성, 시드, 실험설계, 학습-서빙-불일치]
 ---
 
@@ -76,6 +76,7 @@ tags: [재현성, 시드, 실험설계, 학습-서빙-불일치]
   - 같은 입력을 같은 순서로 넣고 출력을 칸마다 비교했다.
   - 표준화 통계 하나 때문에 생긴 어긋남(최대 3)을 찾아 막았다. → [[어조-모듈]]
   - 자릿수를 줄여 저장하면서 생긴 백만분의 1 수준의 반올림 차이는 불일치로 보지 않았다.
+- **학습 한 번은 결론을 뒤집을 만큼 흔들린다 (LAB 90)**: 첫 학습의 "2a가 확실히 낫다"는 2a의 첫 학습이 잘 나온 결과였다. 두 번째 학습에서는 반대로 "2a가 확실히 못하다"가 나왔다. 같은 모델도 시드만 바꾸면 정답률이 최대 2.4%p 달라졌고, 세 모델 사이 차이는 이보다 작았다. 그래서 모델 비교는 시드 반복이 기본이어야 한다. 판단 기준(세 번 모두 같은 방향 + 합쳐서 통계적으로 확실)은 결과를 보기 전에 정했다. → [[어조-모듈-층2]]
 - **교훈**
   - 노트북 셀에서만 돈 단계는 재현의 약한 고리다. 스크립트로 남겨야 한다.
   - 짝 정보 같은 메타데이터는 처음부터 함께 저장한다.
@@ -111,3 +112,4 @@ tags: [재현성, 시드, 실험설계, 학습-서빙-불일치]
 - 원글: [LAB 79. 사라진 학습 데이터를 똑같이 되살릴 수 있는가](https://velog.io/@xorms/LAB-79.-%EC%82%AC%EB%9D%BC%EC%A7%84-%ED%95%99%EC%8A%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EB%98%91%EA%B0%99%EC%9D%B4-%EB%90%98%EC%82%B4%EB%A6%B4-%EC%88%98-%EC%9E%88%EB%8A%94%EA%B0%80)
 - 원글: [LAB 80. 학습을 다시 하면 같은 숫자가 나오는가](https://velog.io/@xorms/LAB-80.-%ED%95%99%EC%8A%B5%EC%9D%84-%EB%8B%A4%EC%8B%9C-%ED%95%98%EB%A9%B4-%EA%B0%99%EC%9D%80-%EC%88%AB%EC%9E%90%EA%B0%80-%EB%82%98%EC%98%A4%EB%8A%94%EA%B0%80)
 - 원글: [LAB 89. 실전 모듈이 학습 때와 똑같이 계산하는가](https://velog.io/@xorms/LAB-89.-%EC%8B%A4%EC%A0%84-%EB%AA%A8%EB%93%88%EC%9D%B4-%ED%95%99%EC%8A%B5-%EB%95%8C%EC%99%80-%EB%98%91%EA%B0%99%EC%9D%B4-%EA%B3%84%EC%82%B0%ED%95%98%EB%8A%94%EA%B0%80)
+- 원글: [LAB 90. 다시 학습해 보니](https://velog.io/@xorms/LAB-90.-%EB%8B%A4%EC%8B%9C-%ED%95%99%EC%8A%B5%ED%95%B4-%EB%B3%B4%EB%8B%88)
