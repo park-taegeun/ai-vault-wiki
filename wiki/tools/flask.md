@@ -1,7 +1,7 @@
 ---
 type: tool
-modified: 2026-10-19
-sources: [_private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-6.md, _private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-7.md, _private/raw/velog/졸업작품-기록/2026-06-14-졸업작품-기록34.md, _private/raw/velog/졸업작품-기록/2026-06-15-졸업작품-기록35.md, _private/raw/velog/졸업작품-기록/2026-07-06-졸업작품-기록-42.md]
+modified: 2026-11-10
+sources: [_private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-6.md, _private/raw/velog/졸업작품-기록/2026-04-07-졸업작품-기록-7.md, _private/raw/velog/졸업작품-기록/2026-06-14-졸업작품-기록34.md, _private/raw/velog/졸업작품-기록/2026-06-15-졸업작품-기록35.md, _private/raw/velog/졸업작품-기록/2026-07-06-졸업작품-기록-42.md, _private/raw/velog/졸업작품-기록/2026-11-05-졸업작품-기록-99.md]
 tags: [python, 웹프레임워크, api, wsgi]
 ---
 
@@ -25,7 +25,7 @@ Python 웹 프레임워크다. WSGI 앱이라 프로덕션에서는 Gunicorn 같
   `/detect`는 빨라야 하는 1차 알림, `/enrich`는 사진 + 추가 5초 녹음을 보내는 2차라 분리했다 → [[2단계-알림]]
 - **응답 JSON은 프론트 타입이 기준**: `dashboard/src/types/*.ts`를 먼저 보고 맞춘다. cursor 메타(`next_cursor`, `has_more`)는 기존 키를 유지한 채 additive로 내렸다 → [[single-source-of-truth]]
 - **인증**: Device Token과 Dashboard Token을 나누고 데코레이터로 라우트별로 건다. 토큰 비교는 `hmac.compare_digest`(상수시간)이고, 설정값이 비어 있으면 무조건 401이다. 설정 누락이 인증 우회가 되지 않게 했다.
-- **rate limit**: device 기준 5초당 1회, 초과 시 `429` + `Retry-After` 헤더.
+- **rate limit**: device 기준 5초당 1회, 초과 시 `429` + `Retry-After` 헤더. 기록 99에서 2.5초(잠정)로 줄였다. 서버가 오디오 업로드가 끝난 뒤 시각을 찍어, 망 속도가 바뀌면 서버가 느끼는 간격이 실제보다 짧아졌다 → [[idempotency-key]]
 - **중복 방지**: ESP32가 발급한 `client_request_id`를 24시간 보관하고, 같은 key가 오면 이전 응답을 그대로 replay한다 → [[idempotency-key]]
 - **에러 형식 통일**: HTTP 8종(200/201/400/401/404/409/429/500), 본문은 모두 `{"error": "...", "message": "..."}`.
 
@@ -48,3 +48,4 @@ Python 웹 프레임워크다. WSGI 앱이라 프로덕션에서는 Gunicorn 같
 - 원글: [졸업작품 기록 (34)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D34)
 - 원글: [졸업작품 기록 (35)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D35)
 - 원글: [졸업작품 기록 (42)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-42)
+- 원글: [졸업작품 기록 (99)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-99)
