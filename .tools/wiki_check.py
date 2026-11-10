@@ -39,9 +39,6 @@ INLINE_CODE_RE = re.compile(r"`[^`\n]*`")
 TODAY = date.today()
 VELOG_LAST_OK = "_private/logs/velog-last-success"
 VELOG_STALE_DAYS = 3
-READINESS_WINDOW = 14     # 2단계 전환 판단 기간 (일)
-READINESS_MIN_RUNS = 5    # 이 기간에 /velog-wiki를 최소 몇 번 돌려봤는지
-READINESS_MAX_FIX = 1     # 사람이 고친 횟수가 이 이하이면 전환 검토 가능
 ORDER = ["🚨 wiki → 비공개 링크", "🚨 공개 파일 안 비밀값·개인정보 의심", "📡 Velog 자동 수집 멈춤",
          "⚠️ 같은 이름 페이지 (링크 모호)", "⏰ 마감 지났는데 진행중/대기", "⚔️ 남아 있는 모순 표시", "🔗 끊긴 링크", "🏝 고아 페이지",
          "📇 목차에 없는 페이지", "🧾 프론트매터 누락 (type/modified)", "💤 30일 넘게 갱신 없는 진행중",
@@ -216,42 +213,6 @@ def check_lint(v):
             r["📡 Velog 자동 수집 멈춤"].append(
                 f"마지막 성공 {last} ({(TODAY - last).days}일 전) — `bash .tools/velog_schedule.sh status`로 확인")
     return r
-
-
-def readiness():
-    """최근 기간의 /velog-wiki 실행 수와 사람이 결과를 고친 횟수 (log.md 기준)."""
-    if not os.path.exists(os.path.join(ROOT, LOG)):
-        return None
-    runs = fixes = 0
-    since = TODAY - timedelta(days=READINESS_WINDOW)
-    ever = False
-    for line in read(LOG).splitlines():
-        m = re.match(r"^- (\d{4}-\d{2}-\d{2}) \| (\S+)\s*\|\s*(\S+)?", line)
-        if not m:
-            continue
-        d, kind, target = to_date(m.group(1)), m.group(2), (m.group(3) or "")
-        is_run = kind == "velog-wiki"
-        is_fix = kind == "correction" and target.startswith("velog-wiki")
-        ever |= is_run
-        if d and d >= since:
-            runs += is_run
-            fixes += is_fix
-    return (runs, fixes) if ever else None
-
-
-def print_readiness():
-    rd = readiness()
-    if rd is None:
-        return
-    runs, fixes = rd
-    ok = runs >= READINESS_MIN_RUNS and fixes <= READINESS_MAX_FIX
-    print(f"## 🤖 자동화 2단계 준비도 (최근 {READINESS_WINDOW}일)")
-    print(f"- /velog-wiki 실행 {runs}회, 사람이 결과를 고친 횟수 {fixes}회")
-    print(f"- 기준: 실행 {READINESS_MIN_RUNS}회 이상이면서 고친 횟수 {READINESS_MAX_FIX}회 이하")
-    print("- 판정: " + ("✅ 정리까지 자동화(2단계) 검토 가능" if ok else
-                       ("⏳ 아직 표본이 적음 — 계속 1단계로" if runs < READINESS_MIN_RUNS else
-                        "🔧 고칠 일이 아직 많음 — 반복되는 수정을 규칙(CLAUDE.md·스킬 시리즈 표)에 반영 후 재측정")))
-    print()
 
 
 # 본문 없이 제목·링크·URL·구분선만 있는 줄 (노션 목차 페이지, 빈 주차 페이지)
@@ -461,7 +422,6 @@ def main():
             n += 1
             print(f"{n}. {item}")
         print()
-    print_readiness()
 
 
 if __name__ == "__main__":
