@@ -1,7 +1,7 @@
 ---
 type: concept
-modified: 2026-10-18
-sources: [_private/raw/velog/AI_LAB/2026-05-27-LAB-12.-통제-실험.md, _private/raw/velog/AI_LAB/2026-07-14-LAB-54.-음향-벡터를-LLM에-어떻게-넣을-것인가.md, _private/raw/velog/AI_LAB/2026-07-28-LAB-57.-표현-수준-융합-설계.md, _private/raw/velog/AI_LAB/2026-07-29-LAB-58.-표현-수준-융합-학습-파이프라인-설계-결정-4가지.md, _private/raw/velog/AI_LAB/2026-07-31-LAB-60.-표현수준-융합-본학습.md, _private/raw/velog/AI_LAB/2026-08-07-LAB-62.-어조-정보의-성분-분해.md, _private/raw/velog/AI_LAB/2026-08-08-LAB-63.-소프트-토큰-확장-실험.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-68.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md]
+modified: 2026-11-20
+sources: [_private/raw/velog/AI_LAB/2026-11-13-LAB-91.-정답도-평소와-비교해-보니.md, _private/raw/velog/AI_LAB/2026-11-13-LAB-92.-장면-탓을-빼고-보니.md, _private/raw/velog/AI_LAB/2026-05-27-LAB-12.-통제-실험.md, _private/raw/velog/AI_LAB/2026-07-14-LAB-54.-음향-벡터를-LLM에-어떻게-넣을-것인가.md, _private/raw/velog/AI_LAB/2026-07-28-LAB-57.-표현-수준-융합-설계.md, _private/raw/velog/AI_LAB/2026-07-29-LAB-58.-표현-수준-융합-학습-파이프라인-설계-결정-4가지.md, _private/raw/velog/AI_LAB/2026-07-31-LAB-60.-표현수준-융합-본학습.md, _private/raw/velog/AI_LAB/2026-08-07-LAB-62.-어조-정보의-성분-분해.md, _private/raw/velog/AI_LAB/2026-08-08-LAB-63.-소프트-토큰-확장-실험.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-68.md, _private/raw/velog/AI_LAB/2026-08-21-LAB-69.-층2-층1-실험-결과.md]
 tags: [통제실험, 대조군, placebo, 실험설계]
 ---
 
@@ -63,6 +63,10 @@ tags: [통제실험, 대조군, placebo, 실험설계]
   - 층2만 치환하면 층1의 효과가 뺄셈에서 지워진다. 그래서 **126차원 전체를 통째로 치환**했다.
   - 대신 대조군이 통제하는 대상이 "같은 감정의 어조 편차"에서 "같은 감정인 다른 발화의 소리 전체"로 바뀐다.
   - 결과는 plac 40.69 > real 39.74 > plac_cross 37.63이었다.
+- **"그 사람의 평소" 덕인지 가리는 대조군 (LAB 91)**: 층2가 정보를 더한 효과가 숫자를 더 넣어서인지 확인하려고, 평소 자리에 두 가지를 바꿔 넣었다. → [[어조-모듈-층2]]
+  - 엉뚱한 사람의 평소: 효과가 없었고 각성도는 조금 손해였다. 다섯 번 바꿔 뽑아도 같았다. 효과는 그 사람의 평소를 알려준 덕이다.
+  - 같은 대본을 연기한 짝의 평소: 목소리는 없고 맡은 장면 구성만 든 값이다. 감정가에서 효과의 절반쯤이 나왔다. 그래서 감정가 효과 일부가 장면 구성이라는 것을 찾았고, 이를 뺀 정답으로 다시 쟀다(LAB 92).
+  - 대조군을 "아무 값"이 아니라 "빼고 싶은 정보만 남긴 값"으로 고르면, 효과가 어디서 왔는지까지 나눌 수 있다.
 
 ## 관련
 - [[sarcasm-detection]] · [[음향-벡터-프롬프트-주입]] · [[표현-수준-융합]] · [[어조-성분-분해]] · [[어조-기여-평가-지표]] · [[어조-모듈-층2]] · [[gemma-4]] · [[reproducibility]] · [[회의-음성-어조-분석-연구]]
@@ -71,3 +75,4 @@ tags: [통제실험, 대조군, placebo, 실험설계]
 - 원글: [LAB 58. 표현 수준 융합 학습 파이프라인, 설계 결정 4가지](https://velog.io/@xorms/LAB-58.-%ED%91%9C%ED%98%84-%EC%88%98%EC%A4%80-%EC%9C%B5%ED%95%A9-%ED%95%99%EC%8A%B5-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EC%84%A4%EA%B3%84-%EA%B2%B0%EC%A0%95-4%EA%B0%80%EC%A7%80)
 - 원글: [LAB 62. 어조 정보의 성분 분해](https://velog.io/@xorms/LAB-62.-%EC%96%B4%EC%A1%B0-%EC%A0%95%EB%B3%B4%EC%9D%98-%EC%84%B1%EB%B6%84-%EB%B6%84%ED%95%B4)
 - 원글: [LAB 68. 층2 -> 층1 + 층2 방향성 변경](https://velog.io/@xorms/LAB-68)
+- 원글: [LAB 91. 정답도 평소와 비교해 보니](https://velog.io/@xorms/LAB-91.-%EC%A0%95%EB%8B%B5%EB%8F%84-%ED%8F%89%EC%86%8C%EC%99%80-%EB%B9%84%EA%B5%90%ED%95%B4-%EB%B3%B4%EB%8B%88)
