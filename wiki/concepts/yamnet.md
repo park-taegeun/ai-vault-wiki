@@ -1,7 +1,7 @@
 ---
 type: concept
-modified: 2026-10-18
-sources: [_private/raw/velog/졸업작품-기록/2026-03-19-졸업작품-기록4.md, _private/raw/velog/졸업작품-기록/2026-03-27-졸업작품-기록5.md, _private/raw/velog/졸업작품-기록/2026-04-27-졸업작품-기록12.md, _private/raw/velog/졸업작품-기록/2026-04-27-졸업작품-기록-13.md, _private/raw/velog/졸업작품-기록/2026-04-28-졸업작품-기록-14.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-40.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-41.md, _private/raw/velog/졸업작품-기록/2026-07-08-졸업작품-기록-44.md]
+modified: 2026-11-24
+sources: [_private/raw/velog/졸업작품-기록/2026-11-24-졸업작품-기록-101.md, _private/raw/velog/졸업작품-기록/2026-03-19-졸업작품-기록4.md, _private/raw/velog/졸업작품-기록/2026-03-27-졸업작품-기록5.md, _private/raw/velog/졸업작품-기록/2026-04-27-졸업작품-기록12.md, _private/raw/velog/졸업작품-기록/2026-04-27-졸업작품-기록-13.md, _private/raw/velog/졸업작품-기록/2026-04-28-졸업작품-기록-14.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-40.md, _private/raw/velog/졸업작품-기록/2026-07-01-졸업작품-기록-41.md, _private/raw/velog/졸업작품-기록/2026-07-08-졸업작품-기록-44.md]
 tags: [오디오, 사전학습, 분류, tensorflow]
 ---
 
@@ -61,12 +61,13 @@ Google이 VGGish 이후에 만든 오디오 분류용 사전학습 CNN이다. Mo
   ```
 
   메모리 대부분은 모델이 아니라 프레임워크 런타임이었다. 여유가 커서 TFLite 변환 같은 경량화는 필요 없다고 확정했다. 실제 인스턴스를 띄운 숫자는 아니지만, 메모리는 기기 종류를 덜 타는 지표라 조기경보로는 충분했다.
-- 이후 재학습과 새 모델 비교는 [[모델-교체-판단]] 참고.
+- 이후 재학습과 새 모델 비교는 [[모델-교체-판단]] 참고. 마지막 5차 모델(4클래스)은 703개 평가 세트에서 651개(92.6%), 4종 평균 F1 0.8339였다(기록 101). 위 예비 학습의 424개 세트와는 내용도 클래스 수도 달라 개선 폭으로 비교할 수 없다 → [[data-leakage]]
 
 ## 관련
-- [[cnn]] · [[mel-spectrogram]] · [[transfer-learning]] · [[data-augmentation]] · [[keras-savedmodel]] · [[구현-전-사전-테스트]] · [[현관-소리-학습-데이터]] · [[모델-교체-판단]] · [[초인종-유사도-검증]] · [[2단계-알림]] · [[aws-ec2]] · [[flask]] · [[데이터-라벨-감사]] · [[띵동]]
+- [[cnn]] · [[mel-spectrogram]] · [[transfer-learning]] · [[data-augmentation]] · [[keras-savedmodel]] · [[구현-전-사전-테스트]] · [[현관-소리-학습-데이터]] · [[모델-교체-판단]] · [[초인종-유사도-검증]] · [[2단계-알림]] · [[aws-ec2]] · [[flask]] · [[데이터-라벨-감사]] · [[data-leakage]] · [[띵동]]
 - 원글: [졸업작품 기록(4)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D4)
 - 원글: [졸업작품 기록 (13)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-13)
 - 원글: [졸업작품 기록 (40)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-40)
 - 원글: [졸업작품 기록 (41)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-41)
 - 원글: [졸업작품 기록 (44)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-44)
+- 원글: [졸업작품 기록 (101)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-101)

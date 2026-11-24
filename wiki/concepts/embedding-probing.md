@@ -1,7 +1,7 @@
 ---
 type: concept
-modified: 2026-10-18
-sources: [_private/raw/velog/AI_LAB/2026-06-16-LAB-30.-임베딩-프로빙.md, _private/raw/velog/AI_LAB/2026-06-17-LAB-32.-임베딩openSMILE-편차-비중복-검증.md, _private/raw/velog/AI_LAB/2026-06-17-LAB-33.md, _private/raw/velog/AI_LAB/2026-07-13-LAB-53.-오디오-모듈-구출-및-전체-확장.md, _private/raw/velog/AI_LAB/2026-08-10-LAB-64.-발화-개별-편차의-정체.md]
+modified: 2026-11-24
+sources: [_private/raw/velog/AI_LAB/2026-11-23-LAB-93.-정답을-바꿔-학습해-보니.md, _private/raw/velog/AI_LAB/2026-06-16-LAB-30.-임베딩-프로빙.md, _private/raw/velog/AI_LAB/2026-06-17-LAB-32.-임베딩openSMILE-편차-비중복-검증.md, _private/raw/velog/AI_LAB/2026-06-17-LAB-33.md, _private/raw/velog/AI_LAB/2026-07-13-LAB-53.-오디오-모듈-구출-및-전체-확장.md, _private/raw/velog/AI_LAB/2026-08-10-LAB-64.-발화-개별-편차의-정체.md]
 tags: [probing, embedding, 실험설계, audio-tower]
 ---
 
@@ -60,6 +60,7 @@ tags: [probing, embedding, 실험설계, audio-tower]
   - 정답지가 하나뿐이면 "잡음이라 안 맞는 것"과 "다른 축의 정보라 안 맞는 것"이 같은 숫자로 나온다.
   - 그래서 소리 감정, 화자, 말하기 속도, 텍스트 감정, 텍스트-음성 불일치처럼 여러 정답지를 번갈아 대 봤다.
   - 먼저 "나오면 안 되는 정답지"로 검산했다. 소리 감정 정답률이 기준선 0.2056과 소수 넷째 자리까지 같았다. 이걸 확인한 뒤에 나머지 결과를 믿었다. → [[어조-성분-분해]]
+- **선형으로 꺼낼 수 있다는 것과 받는 쪽이 쓴다는 것은 다르다 (LAB 93)**: 평소 대비 각성도를 선형으로 예측하면 층2를 더할 때 R²가 0.102에서 0.129로 올랐다. 같은 정답으로 LLM 융합을 실제로 학습하니 그 이득이 순서 맞히기에서도 보이지 않았다. 선형 예측은 "정보가 있다"까지만 말해 주고, 쓰는지는 학습해 봐야 안다. → [[어조-모듈-층2]], [[표현-수준-융합]]
 - 이 실험이 답하는 것은 "두 측정이 일치하는가"까지다. 평소에서 벗어난 것이 곧 비꼼이라는 것은 증명하지 못한다. → [[sarcasm-detection]]
 
 ## 관련
@@ -68,3 +69,4 @@ tags: [probing, embedding, 실험설계, audio-tower]
 - 원글: [LAB 32. 임베딩·openSMILE 편차 비중복 검증](https://velog.io/@xorms/LAB-32.-%EC%9E%84%EB%B2%A0%EB%94%A9openSMILE-%ED%8E%B8%EC%B0%A8-%EB%B9%84%EC%A4%91%EB%B3%B5-%EA%B2%80%EC%A6%9D)
 - 원글: [LAB 33. 임베딩 편차 음향 분해](https://velog.io/@xorms/LAB-33)
 - 원글: [LAB 64. 발화 개별 편차의 정체](https://velog.io/@xorms/LAB-64.-%EB%B0%9C%ED%99%94-%EA%B0%9C%EB%B3%84-%ED%8E%B8%EC%B0%A8%EC%9D%98-%EC%A0%95%EC%B2%B4)
+- 원글: [LAB 93. 정답을 바꿔 학습해 보니](https://velog.io/@xorms/LAB-93.-%EC%A0%95%EB%8B%B5%EC%9D%84-%EB%B0%94%EA%BF%94-%ED%95%99%EC%8A%B5%ED%95%B4-%EB%B3%B4%EB%8B%88)

@@ -1,6 +1,6 @@
 ---
 type: concept
-modified: 2026-10-19
+modified: 2026-11-24
 sources: [_private/raw/notion/LAB/랩미팅/0619/스크립트 383d8df03cab80e7a50dcab1e44d0831.md, _private/raw/velog/AI_LAB/2026-05-26-LAB-9.-Gemma-4-로컬-셋업.md, _private/raw/velog/AI_LAB/2026-05-26-LAB-10.-Sarcasm-탐지-실험1.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-14.-Gemma-4-음성-파이프라인-설계-1-MFCC-어조-그리고-추상화-레벨의-함정.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-Gemma-4-E4B-it-첫-로드-테스트.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-16.md, _private/raw/velog/AI_LAB/2026-05-28-LAB-17-win3cgck.md, _private/raw/velog/AI_LAB/2026-06-02-LAB-26.-Gemma-4-ASR-파인튜닝-1-도메인-적응-목표-설정과-데이터-준비.md, _private/raw/velog/AI_LAB/2026-06-11-LAB-28.-랩미팅-피드백-가벼운-모델-실험.md, _private/raw/velog/AI_LAB/2026-06-16-LAB-29.md, _private/raw/velog/AI_LAB/2026-06-16-LAB-31.md, _private/raw/velog/AI_LAB/2026-06-22-LAB-35.-파인튜닝-소규모-학습검증.md, _private/raw/velog/AI_LAB/2026-06-23-LAB-38.-오디오-경로-구조-검증.md, _private/raw/velog/AI_LAB/2026-07-28-LAB-57.-표현-수준-융합-설계.md]
 tags: [gemma-4, llm, multimodal, asr, tokenizer]
 ---
@@ -86,7 +86,7 @@ gemma-4-E4B-it
   - 그래서 상대적인 수치 변화를 잡는 일은 측정 도구에 맡겼다. → [[opensmile]], [[어조-모듈]]
 
 ## 관련
-- [[audio-tower]] · [[quantization]] · [[huggingface-transformers]] · [[transformer]] · [[asr]] · [[asr-hallucination]] · [[asr-fine-tuning]] · [[lora]] · [[sarcasm-detection]] · [[opensmile]] · [[embedding-probing]] · [[표현-수준-융합]] · [[어조-모듈]] · [[회의-음성-어조-분석-연구]]
+- [[audio-tower]] · [[quantization]] · [[huggingface-transformers]] · [[transformer]] · [[asr]] · [[asr-hallucination]] · [[asr-fine-tuning]] · [[lora]] · [[sarcasm-detection]] · [[opensmile]] · [[embedding-probing]] · [[표현-수준-융합]] · [[어조-모듈]] · [[어조-모듈-층2]] · [[회의-음성-어조-분석-연구]]
 - 원글: [LAB 09. Gemma 4 로컬 셋업](https://velog.io/@xorms/LAB-9.-Gemma-4-%EB%A1%9C%EC%BB%AC-%EC%85%8B%EC%97%85)
 - 원글: [LAB 15. Gemma 4 E4B-it 첫 로드 테스트](https://velog.io/@xorms/LAB-Gemma-4-E4B-it-%EC%B2%AB-%EB%A1%9C%EB%93%9C-%ED%85%8C%EC%8A%A4%ED%8A%B8)
 - 원글: [LAB 29. 토크나이저 & 태그 실험](https://velog.io/@xorms/LAB-29)

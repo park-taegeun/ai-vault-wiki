@@ -1,7 +1,7 @@
 ---
 type: concept
-modified: 2026-10-18
-sources: [_private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-58.md, _private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-59.md, _private/raw/velog/졸업작품-기록/2026-09-10-졸업작품-기록-60-yluffzjs.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-63-5c94whuk.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-64.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-65-1bdolylo.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-67.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-69.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-74.md, _private/raw/velog/졸업작품-기록/2026-10-17-졸업작품-기록-92.md, _private/raw/velog/졸업작품-기록/2026-10-17-졸업작품-기록-93.md, _private/raw/velog/졸업작품-기록/2026-10-18-졸업작품-기록-94.md]
+modified: 2026-11-24
+sources: [_private/raw/velog/졸업작품-기록/2026-11-24-졸업작품-기록-100.md, _private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-58.md, _private/raw/velog/졸업작품-기록/2026-09-09-졸업작품-기록-59.md, _private/raw/velog/졸업작품-기록/2026-09-10-졸업작품-기록-60-yluffzjs.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-63-5c94whuk.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-64.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-65-1bdolylo.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-67.md, _private/raw/velog/졸업작품-기록/2026-10-07-졸업작품-기록-69.md, _private/raw/velog/졸업작품-기록/2026-10-08-졸업작품-기록-74.md, _private/raw/velog/졸업작품-기록/2026-10-17-졸업작품-기록-92.md, _private/raw/velog/졸업작품-기록/2026-10-17-졸업작품-기록-93.md, _private/raw/velog/졸업작품-기록/2026-10-18-졸업작품-기록-94.md]
 tags: [테스트, 검증, 가드, 임베디드]
 ---
 
@@ -58,6 +58,7 @@ tags: [테스트, 검증, 가드, 임베디드]
   - 업로드 실패 원인 줄이 결과 확인 명령의 끝 6줄에 잘려 있었다. 실패 판정용 명령은 출력을 자르지 않고 파일로 남긴 뒤 검색한다.
   - 진짜 멈춤은 한 번도 관측하지 못했다.
 - **비교 도구가 불일치를 잡는지 (기록 94)**: 녹음 재채점 도구에서 조건 하나를 일부러 뒤집으니 불일치가 잡혔고, 되돌리니 0이 됐다 → [[모델-교체-판단]]
+- **상한을 푼 변경도 변형 두 개로 확인 (기록 100)**: 펌웨어가 한 부팅에 사진·녹음 전송을 12번만 하던 상한을, 경계 비교 로직은 그대로 두고 값만 최댓값으로 바꿨다. 호스트 테스트는 90에서 91 checks가 됐고, 비교 기호를 바꾸는 변형과 값을 되돌리는 변형이 모두 실패했다. 실제 보드에서 한 부팅 13번 이상 동작하는지는 직접 확인하지 못했다 → [[띵동]]
 
 ## 관련
 - [[대조-가드]] · [[test-network-isolation]] · [[vl53l5cx]] · [[reproducibility]] · [[onset-detection]] · [[design-tokens]] · [[ai-산출물-검증]] · [[구현-전-사전-테스트]] · [[모델-교체-판단]] · [[data-leakage]] · [[i2c]] · [[미결-실재-확인]] · [[띵동]]
@@ -67,3 +68,4 @@ tags: [테스트, 검증, 가드, 임베디드]
 - 원글: [졸업작품 기록 (63)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-63-5c94whuk)
 - 원글: [졸업작품 기록 (69)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-69)
 - 원글: [졸업작품 기록 (93)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-93)
+- 원글: [졸업작품 기록 (100)](https://velog.io/@xorms/%EC%A1%B8%EC%97%85%EC%9E%91%ED%92%88-%EA%B8%B0%EB%A1%9D-100)
